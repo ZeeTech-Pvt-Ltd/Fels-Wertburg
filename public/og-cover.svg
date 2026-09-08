@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Fels Wertburg AI</title>
+  <desc id="d">Fels Wertburg AI — AI-assisted cryptocurrency research assistant for Australians.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B2C47"/>
+      <stop offset="1" stop-color="#123B5D"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123B5D"/>
+      <stop offset="1" stop-color="#1E6F8C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1120" cy="60" r="260" fill="#29B6A8" opacity="0.12"/>
+  <circle cx="60" cy="600" r="300" fill="#1E6F8C" opacity="0.18"/>
+  <g opacity="0.06" stroke="#ffffff">
+    <line x1="0" y1="315" x2="1200" y2="315" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke-width="1"/>
+  </g>
+
+  <rect x="84" y="150" width="96" height="96" rx="24" fill="url(#mark)"/>
+  <path d="M108 214 L132 174 L145 196 L162 168 L180 214" fill="none" stroke="#7BE3D6" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M162 195 L180 214 L155 214 Z" fill="#29B6A8"/>
+
+  <text x="204" y="202" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" fill="#FFFFFF">Fels Wertburg</text>
+  <text x="204" y="266" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" fill="#29B6A8">AI</text>
+
+  <text x="204" y="360" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#CFE2EA">
+    AI-assisted cryptocurrency research, scanning and education — in one clear platform.
+  </text>
+  <text x="204" y="452" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#8FB0C2">
+    www.fels-wertburgai.com
+  </text>
+</svg>

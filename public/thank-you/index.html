@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#123B5D" />
+    <title>You&rsquo;re all set | Fels Wertburg AI</title>
+    <meta
+      name="description"
+      content="Thank you for registering with Fels Wertburg AI. Check your inbox to finish getting started."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #123b5d;
+        --secondary: #1e6f8c;
+        --accent: #29b6a8;
+        --accent-dark: #15877d;
+        --ink: #102a43;
+        --steel: #486581;
+        --muted: #627d98;
+        --canvas: #f5f8fa;
+        --card: #ffffff;
+        --ring: #15877d;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(720px 420px at 12% -10%, rgba(41, 182, 168, 0.12), transparent 60%),
+          radial-gradient(760px 460px at 95% 110%, rgba(30, 111, 140, 0.12), transparent 60%),
+          var(--canvas);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        line-height: 1.6;
+      }
+      a:focus-visible, button:focus-visible {
+        outline: 3px solid var(--ring);
+        outline-offset: 2px;
+        border-radius: 6px;
+      }
+      .card {
+        width: 100%;
+        max-width: 560px;
+        background: var(--card);
+        border: 1px solid rgba(16, 42, 67, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 28px 70px -40px rgba(18, 59, 93, 0.35);
+        padding: 40px 32px 32px;
+        text-align: center;
+      }
+      .wordmark {
+        font-family: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+        color: var(--primary);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .wordmark .ai { color: var(--accent-dark); }
+      .mark {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: inline-grid;
+        place-items: center;
+      }
+      .mark svg { width: 16px; height: 16px; }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 28px;
+        background: rgba(41, 182, 168, 0.12);
+        color: var(--accent-dark);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 999px;
+      }
+      .check {
+        margin: 26px auto 0;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: rgba(41, 182, 168, 0.15);
+        display: grid;
+        place-items: center;
+      }
+      .check svg { width: 40px; height: 40px; color: var(--accent-dark); }
+      h1 {
+        font-family: 'Manrope', 'Inter', ui-sans-serif, sans-serif;
+        font-size: clamp(1.7rem, 6vw, 2.3rem);
+        font-weight: 800;
+        color: var(--primary);
+        margin: 18px 0 10px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        color: var(--steel);
+        font-size: 15px;
+        max-width: 40ch;
+        margin: 0 auto;
+      }
+      .lede strong { color: var(--ink); font-weight: 600; }
+      .steps {
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+        display: grid;
+        gap: 10px;
+      }
+      .steps li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        background: var(--canvas);
+        border: 1px solid rgba(16, 42, 67, 0.07);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-size: 13.5px;
+        color: var(--ink);
+      }
+      .steps .num {
+        flex: 0 0 auto;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+        display: grid;
+        place-items: center;
+        margin-top: 1px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 26px;
+        width: 100%;
+        background: linear-gradient(135deg, var(--secondary), var(--accent-dark));
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: inherit;
+        text-decoration: none;
+        padding: 14px 22px;
+        border-radius: 14px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 12px 24px -14px rgba(18, 59, 93, 0.5);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 16px 30px -14px rgba(18, 59, 93, 0.55); }
+      .risk {
+        margin: 22px 0 0;
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .foot {
+        margin-top: 18px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      @media (min-width: 520px) {
+        .card { padding: 48px 44px 36px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main" aria-labelledby="thanks-title">
+      <a class="wordmark" href="/" aria-label="Fels Wertburg AI — back to homepage">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 19l5-12 4 7 4-9 3 14" stroke="#7BE3D6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17 15l4-4 3 4" fill="#29B6A8"/>
+          </svg>
+        </span>
+        <span>Fels Wertburg <span class="ai">AI</span></span>
+      </a>
+
+      <p class="badge">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true">
+          <path d="M12 3l7 3v5c0 4.4-3 8.4-7 10-4-1.6-7-5.6-7-10V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9.5 11.5l1.8 1.8 3.4-3.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Registration received
+      </p>
+
+      <span class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+
+      <h1 id="thanks-title">You&rsquo;re all set!</h1>
+      <p class="lede">
+        Thanks for registering with <strong>Fels Wertburg AI</strong>. A confirmation email is on
+        its way to <strong>the address you provided</strong> — check your inbox to finish getting started.
+      </p>
+
+      <ul class="steps" aria-label="What happens next">
+        <li>
+          <span class="num" aria-hidden="true">1</span>
+          <span>Open the confirmation email we just sent and click the link to verify your address.</span>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">2</span>
+          <span>Log in and set up your market watchlist to start exploring the tools and learning resources.</span>
+        </li>
+        <li>
+          <span class="num" aria-hidden="true">3</span>
+          <span>Got questions? Our team replies Monday to Friday, 9am–5pm AEST at support@fels-wertburgai.com.</span>
+        </li>
+      </ul>
+
+      <a class="btn" href="/">
+        Back to homepage
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <p class="risk">
+        <strong>Risk warning:</strong> Financial markets involve risk. Information provided on this
+        website is general in nature and does not constitute personal financial advice. Consider your
+        circumstances and seek professional advice where appropriate.
+      </p>
+      <p class="foot">&copy; 2026 Fels Wertburg AI. All rights reserved.</p>
+    </main>
+  </body>
+</html>
