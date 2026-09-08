@@ -40,7 +40,7 @@ export default function HowItWorks() {
           {/* Desktop connector line */}
           <div
             aria-hidden="true"
-            className="absolute left-[16%] right-[16%] top-7 hidden border-t-2 border-dashed border-ink/15 lg:block"
+            className="absolute left-[5%] right-[28%] top-7 hidden border-t-2 border-dashed border-ink/15 lg:block"
           />
 
           <ol className="relative grid gap-12 lg:grid-cols-3 lg:gap-8">

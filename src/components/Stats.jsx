@@ -7,9 +7,9 @@ const STATS = [
     text: 'Stay informed whenever it suits you, on any device.',
   },
   {
-    value: 'Multi-device',
-    label: 'Experience',
-    text: 'Move between desktop, tablet and mobile seamlessly.',
+    value: '60+',
+    label: 'Markets Tracked',
+    text: 'Follow Bitcoin, Ethereum and other digital assets in one place.',
   },
   {
     value: '6+',
