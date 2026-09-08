@@ -18,8 +18,8 @@ export default function Register() {
       </div>
 
       <div className="shell relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* Copy column */}
-        <Reveal>
+        {/* Copy column — right on desktop (lg:order-2), above the form on mobile */}
+        <Reveal className="lg:order-2" delay={120}>
           <Eyebrow index={1}>Get Started</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
             Join Fels Wertburg AI in just a few minutes
@@ -52,8 +52,8 @@ export default function Register() {
           </div>
         </Reveal>
 
-        {/* Form column */}
-        <Reveal delay={120}>
+        {/* Form column — left on desktop (lg:order-1), below the copy on mobile */}
+        <Reveal className="lg:order-1">
           <RegistrationForm />
         </Reveal>
       </div>

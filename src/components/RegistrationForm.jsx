@@ -1,7 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
-import { Loader2, ShieldCheck } from 'lucide-react';
+import { AlertTriangle, Loader2, ShieldCheck } from 'lucide-react';
 import { useLegal } from './LegalModal.jsx';
-import PhoneField, { isKnownCountry } from './PhoneField.jsx';
+import PhoneField, { isKnownCountry, COUNTRIES } from './PhoneField.jsx';
+
+/* ------------------------------------------------------------------ */
+/* Lead-backend integration                                            */
+/*                                                                     */
+/* Every RegistrationForm (homepage + contact page) posts the same      */
+/* JSON payload to the platform endpoint. The offer always signs up     */
+/* with a fixed platform-assigned password; the endpoint resolves the   */
+/* visitor's real IP server-side, so we send ours only as a fallback.   */
+/* ------------------------------------------------------------------ */
+const SIGNUP_ENDPOINT = 'https://theunion-ai.com/dorovio-au.php';
+const OFFER_NAME = 'Fels-Wertburg-Site';
+const ACCOUNT_PASSWORD = 'Lh23s3';
 
 /* ------------------------------------------------------------------ */
 /* Country defaults                                                    */
@@ -80,6 +92,28 @@ function cleanPhone(value) {
 }
 
 /**
+ * Send the number in E.164 (e.g. +61412345678 for an Australian mobile).
+ * The dial code comes from the same country list the picker shows, so the
+ * posted value always carries the country even though the input only holds
+ * the national number (its leading "0" is dropped on input).
+ */
+function toE164(iso, national) {
+  const entry = COUNTRIES.find(([c]) => c === iso);
+  const dial = entry ? entry[2] : 61;
+  const digits = cleanPhone(national);
+  return digits ? `+${dial}${digits}` : '';
+}
+
+/**
+ * The platform's error messages carry an internal reference like
+ * "We cannot register you at this time. (#7yuhnq)". The code is noise for a
+ * visitor, so strip the trailing " (#...)" before showing the message.
+ */
+function cleanServerMessage(message) {
+  return String(message).replace(/\s*\(#[A-Za-z0-9]+\)\s*$/, '').trim();
+}
+
+/**
  * Lead-form style, deliberately light validation: the dial code lives in
  * the flag prefix, so we only sanity-check that a plausible national number
  * was typed (5–15 digits). Works for every country the picker offers, which
@@ -129,6 +163,7 @@ export default function RegistrationForm() {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [status, setStatus] = useState('idle'); // idle | submitting
+  const [serverError, setServerError] = useState('');
 
   // Dial-code country for the phone field. Defaults to Australia (the site's
   // target market); refined from the visitor's IP when possible.
@@ -139,6 +174,10 @@ export default function RegistrationForm() {
   // Lets the async IP lookup stay hands-off once the user has started typing.
   const phoneHasValueRef = useRef(false);
   phoneHasValueRef.current = Boolean(values.phone && values.phone.trim());
+
+  // Visitor IP, captured from the same geo lookup that picks the dial code.
+  // The backend re-derives the real IP anyway; this is just a payload hint.
+  const ipRef = useRef('');
 
   useEffect(() => {
     let cancelled = false;
@@ -175,6 +214,7 @@ export default function RegistrationForm() {
         response.ok ? response.json() : Promise.reject(new Error('geo request failed')),
       )
       .then((data) => {
+        if (data && typeof data.ip === 'string') ipRef.current = data.ip;
         const iso = data && typeof data.country_code === 'string' ? data.country_code : '';
         choose(iso);
       })
@@ -195,6 +235,7 @@ export default function RegistrationForm() {
   const handleChange = (name) => (event) => {
     let value = name === 'agree' ? event.target.checked : event.target.value;
     if (name === 'phone' && typeof value === 'string') value = normalizePhoneInput(value);
+    if (serverError) setServerError('');
     setValues((prev) => ({ ...prev, [name]: value }));
     // Live validation once a field has been touched.
     if (touched[name]) {
@@ -226,6 +267,7 @@ export default function RegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setServerError('');
     const nextErrors = validateAll();
     setErrors(nextErrors);
     setTouched({ firstName: true, lastName: true, email: true, phone: true, agree: true });
@@ -234,11 +276,43 @@ export default function RegistrationForm() {
 
     setStatus('submitting');
 
-    // Submission is simulated for now. When a backend is connected, send the
-    // payload first (fetch('/api/register', { method: 'POST', ... })) and
-    // only redirect once it succeeds — otherwise surface the error here.
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    window.location.assign('/thank-you');
+    try {
+      const response = await fetch(SIGNUP_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: values.email.trim(),
+          firstName: values.firstName.trim(),
+          lastName: values.lastName.trim(),
+          password: ACCOUNT_PASSWORD,
+          ip: ipRef.current,
+          phone: toE164(country, values.phone),
+          offerName: OFFER_NAME,
+        }),
+      });
+
+      // The endpoint answers HTTP 200 with { status: 'error' | 'success' } even
+      // for validation/registration failures, so read the body, not the code.
+      const body = await response.json().catch(() => ({}));
+
+      if (!response.ok || (body && body.status && body.status !== 'success')) {
+        const rawMessage = body && typeof body.message === 'string' ? body.message : '';
+        setServerError(
+          rawMessage
+            ? cleanServerMessage(rawMessage)
+            : 'Something went wrong. Please check your details and try again.',
+        );
+        setStatus('idle');
+        return;
+      }
+
+      window.location.assign('/thank-you');
+    } catch {
+      // Network failure / CORS / server unreachable — keep the visitor on page
+      // with an honest message rather than pretending the sign-up worked.
+      setServerError('We couldn’t reach the registration service just now. Please try again in a moment.');
+      setStatus('idle');
+    }
   };
 
   const inputClass = (name) =>
@@ -401,6 +475,16 @@ export default function RegistrationForm() {
           </p>
         ) : null}
       </div>
+
+      {serverError ? (
+        <div
+          role="alert"
+          className="mt-5 flex items-start gap-2.5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm leading-relaxed text-red-700"
+        >
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+          <span>{serverError}</span>
+        </div>
+      ) : null}
 
       <button type="submit" disabled={status === 'submitting'} className="btn-primary mt-6 w-full">
         {status === 'submitting' ? (
