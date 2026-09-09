@@ -41,7 +41,7 @@ export default function Hero() {
             Smart Tools for Modern Markets
           </p>
 
-          <h1 className="mt-6 text-[34px] font-extrabold leading-[1.08] tracking-tight text-primary">
+          <h1 className="mt-6 text-[clamp(2.125rem,5.5vw,3.5rem)] font-extrabold leading-[1.08] tracking-tight text-primary">
             Make More Informed{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
