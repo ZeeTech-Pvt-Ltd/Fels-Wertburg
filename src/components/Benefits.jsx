@@ -23,7 +23,7 @@ export default function Benefits() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-steel">
             Financial markets are full of noise. We focus on presenting information in a way that is
-            easy to scan, simple to understand and genuinely useful for your own research — without
+            easy to scan, simple to understand and genuinely useful for your own research, without
             jargon, pressure or promises.
           </p>
           <p className="mt-4 text-base leading-relaxed text-steel">

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
   <title id="t">Fels Wertburg AI</title>
-  <desc id="d">Fels Wertburg AI — AI-assisted cryptocurrency research assistant for Australians.</desc>
+  <desc id="d">Fels Wertburg AI, AI-assisted cryptocurrency research assistant for Australians.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B2C47"/>
@@ -27,7 +27,7 @@
   <text x="204" y="266" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" fill="#29B6A8">AI</text>
 
   <text x="204" y="360" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#CFE2EA">
-    AI-assisted cryptocurrency research, scanning and education — in one clear platform.
+    AI-assisted cryptocurrency research, scanning and education in one clear platform.
   </text>
   <text x="204" y="452" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#8FB0C2">
     www.fels-wertburgai.com

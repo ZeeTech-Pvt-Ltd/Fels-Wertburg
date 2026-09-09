@@ -59,7 +59,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <Logo tone="dark" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
-              Fels Wertburg AI is an Australian crypto research platform — built to help you
+              Fels Wertburg AI is an Australian crypto research platform, built to help you
               understand digital-asset markets and make more informed decisions with AI-assisted
               scanning, charts and education.
             </p>

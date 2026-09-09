@@ -4,7 +4,7 @@ import { Check, ChevronDown, Search } from 'lucide-react';
 /* ------------------------------------------------------------------ */
 /* Country dataset: [ISO2, display name, dial code]                    */
 /* Flag images load from flagcdn.com by ISO2 (same CDN the reference   */
-/* sites use — lightweight, no local image assets needed).             */
+/* sites use - lightweight, no local image assets needed).             */
 /* ------------------------------------------------------------------ */
 
 export const COUNTRIES = [

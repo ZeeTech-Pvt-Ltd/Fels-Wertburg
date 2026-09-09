@@ -41,7 +41,7 @@ export default function FAQPage() {
               Frequently asked questions
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
-              Straight answers about Fels Wertburg AI &mdash; what the platform is, who it&rsquo;s for,
+              Straight answers about Fels Wertburg AI: what the platform is, who it&rsquo;s for,
               how registration works and how we look after your information.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function FAQPage() {
               </span>
               <h2 className="mt-4 text-lg font-bold text-primary">Just getting started?</h2>
               <p className="mt-2 text-sm leading-relaxed text-steel">
-                Create your free account on the homepage &mdash; all we need are basic contact details,
+                Create your free account on the homepage: all we need are basic contact details,
                 and you can explore the platform right away.
               </p>
               <a href="/#register" className="btn-primary mt-5 w-full">

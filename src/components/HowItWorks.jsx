@@ -6,12 +6,12 @@ const STEPS = [
   {
     number: '01',
     title: 'Create Your Account',
-    text: 'Complete the simple registration process with just a few basic details — it takes minutes.',
+    text: 'Complete the simple registration process with just a few basic details. It takes minutes.',
   },
   {
     number: '02',
     title: 'Explore Market Tools',
-    text: 'Access market insights, charts and watchlists from one organised workspace.',
+    text: 'Access market insights, charts, watchlists and educational resources from one organised workspace.',
   },
   {
     number: '03',
@@ -32,7 +32,7 @@ export default function HowItWorks() {
             Up and running in three simple steps
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
-            No steep learning curve — just a clear path from sign-up to smarter research.
+            No steep learning curve, just a clear path from sign-up to smarter research.
           </p>
         </div>
 

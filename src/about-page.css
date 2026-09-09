@@ -1,5 +1,5 @@
 /*
- * Fels Wertburg AI — About page content styles.
+ * Fels Wertburg AI - About page content styles.
  * The site header/footer are shared React components; this file styles only
  * the page's unique editorial sections (hero, story, focus, values, promise, CTA).
  * Renamed `.eyebrow` -> `.ab-eyebrow` to avoid colliding with the global one.

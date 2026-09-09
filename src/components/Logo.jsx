@@ -1,5 +1,5 @@
 /**
- * Fels Wertburg AI logo — a lightweight SVG wordmark + geometric tile mark.
+ * Fels Wertburg AI logo - a lightweight SVG wordmark + geometric tile mark.
  * `tone`: 'light' renders on a light page; 'dark' renders on a dark (navy) background.
  */
 export function LogoMark({ className = 'h-5 w-5' }) {
@@ -30,7 +30,7 @@ export default function Logo({ tone = 'light' }) {
     <a
       href="/"
       className="group inline-flex items-center gap-2.5 rounded-md"
-      aria-label="Fels Wertburg AI — back to homepage"
+      aria-label="Fels Wertburg AI, back to homepage"
     >
       <span
         className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-white shadow-card ${

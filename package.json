@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Fels Wertburg AI — an AI-assisted cryptocurrency research assistant for Australians.",
+  "description": "Fels Wertburg AI - an AI-assisted cryptocurrency research assistant for Australians.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

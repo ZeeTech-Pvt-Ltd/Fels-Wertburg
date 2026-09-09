@@ -2,7 +2,7 @@
 
 MarketPilot is an original, single-page landing website for an Australian market insights,
 analytics and education platform. It is built with **React + Vite + Tailwind CSS** and uses
-**Lucide React** icons plus lightweight hand-written SVG charts — no image assets, no heavy
+**Lucide React** icons plus lightweight hand-written SVG charts - no image assets, no heavy
 animation or UI libraries.
 
 ## Getting started
@@ -63,8 +63,8 @@ src/
 ## Content notes
 
 - All copy is original Australian English and written to be responsible about financial
-  risk — no guaranteed-return claims. Product examples are clearly labelled illustrative.
-- Contact details, social links and phone numbers are placeholders — update them before launch.
+  risk - no guaranteed-return claims. Product examples are clearly labelled illustrative.
+- Contact details, social links and phone numbers are placeholders - update them before launch.
 - Review `LegalModal.jsx` legal copy with a qualified professional before going live.
 - Brand colours and fonts are configured in `tailwind.config.js`.
 

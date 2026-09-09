@@ -5,11 +5,11 @@ import Eyebrow from './Eyebrow.jsx';
 export const FAQS = [
   {
     q: 'What is the platform?',
-    a: 'Fels Wertburg AI is an online platform that brings cryptocurrency market information together — live prices, AI-assisted scanning, charts, watchlists and educational content — into a single, easy-to-use workspace for Australians who want to research digital assets more clearly.',
+    a: 'Fels Wertburg AI is an online platform that brings cryptocurrency market information together (live prices, AI-assisted scanning, charts, watchlists and educational content) into a single, easy-to-use workspace for Australians who want to research digital assets more clearly.',
   },
   {
     q: 'Who is the platform designed for?',
-    a: 'Anyone interested in understanding cryptocurrency markets better, from complete beginners to people who already follow digital assets regularly. It is a research and education tool — not a brokerage, trading platform, wallet or investment service.',
+    a: 'Anyone interested in understanding cryptocurrency markets better, from complete beginners to people who already follow digital assets regularly. It is a research and education tool, not a brokerage, trading platform, wallet or investment service.',
   },
   {
     q: 'Is the platform suitable for beginners?',

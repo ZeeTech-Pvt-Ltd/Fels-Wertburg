@@ -65,9 +65,9 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-steel">
-            Fels Wertburg AI pairs AI-assisted market scanning with clear data and charts —
-            helping Australians research Bitcoin, Ethereum and 60+ other cryptocurrencies with
-            more context and less guesswork.
+            Fels Wertburg AI pairs AI-assisted market scanning with clear data, charts and
+            educational resources, helping Australians research Bitcoin, Ethereum and 60+ other
+            cryptocurrencies with more context and less guesswork.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -128,7 +128,7 @@ export default function Hero() {
                       <p className="mt-1 font-display text-xl font-bold text-ink sm:text-2xl">120+</p>
                       <p className="mt-0.5 text-[11px] text-muted">Assets scanned · illustrative</p>
                     </div>
-                    {/* Allocation donut — decorative */}
+                    {/* Allocation donut - decorative */}
                     <span
                       aria-hidden="true"
                       className="relative mt-0.5 hidden h-12 w-12 shrink-0 rounded-full sm:block"

@@ -189,7 +189,7 @@ export default function DashboardPreview() {
           </div>
 
           <p className="relative mt-5 text-center text-[11px] text-white/50">
-            Dashboard shown is an illustrative mock-up for preview purposes — not real data or advice.
+            Dashboard shown is an illustrative mock-up for preview purposes, not real data or advice.
           </p>
         </div>
       </div>

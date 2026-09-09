@@ -13,7 +13,7 @@ const FEATURES = [
   {
     icon: Sparkles,
     title: 'Intelligent Market Insights',
-    text: 'Understand market movements with structured data and clear visualisation — organised so the signal is easy to find.',
+    text: 'Understand market movements with structured data and clear visualisation, organised so the signal is easy to find.',
   },
   {
     icon: LayoutDashboard,

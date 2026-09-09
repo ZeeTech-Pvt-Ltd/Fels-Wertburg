@@ -6,17 +6,17 @@ const TESTIMONIALS = [
   {
     quote: 'Simple to navigate and easy to understand.',
     theme: 'Navigation',
-    note: 'Illustrative example — not a real customer.',
+    note: 'Illustrative example, not a real customer.',
   },
   {
     quote: 'Having market information organised in one place makes research much easier.',
     theme: 'Organisation',
-    note: 'Illustrative example — not a real customer.',
+    note: 'Illustrative example, not a real customer.',
   },
   {
     quote: 'The interface feels clean and straightforward.',
     theme: 'Interface',
-    note: 'Illustrative example — not a real customer.',
+    note: 'Illustrative example, not a real customer.',
   },
 ];
 

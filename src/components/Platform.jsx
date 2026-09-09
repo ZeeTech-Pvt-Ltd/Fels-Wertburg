@@ -20,7 +20,7 @@ export default function Platform() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-steel">
             Fels Wertburg AI brings crypto market data, AI-assisted analysis and charting into one
-            accessible interface — so you can stop juggling scattered exchanges, news feeds and
+            accessible interface, so you can stop juggling scattered exchanges, news feeds and
             spreadsheets.
           </p>
 
@@ -52,7 +52,7 @@ export default function Platform() {
             <div className="relative overflow-hidden rounded-3xl border border-ink/5 bg-white p-2 shadow-soft">
               <img
                 src="/the-platform.webp"
-                alt="Fels Wertburg AI research platform — illustrative interface preview"
+                alt="Fels Wertburg AI research platform, illustrative interface preview"
                 width={1287}
                 height={1222}
                 loading="lazy"

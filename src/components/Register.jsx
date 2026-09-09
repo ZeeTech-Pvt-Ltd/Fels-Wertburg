@@ -3,7 +3,11 @@ import RegistrationForm from './RegistrationForm.jsx';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
-const POINTS = ['Free to explore the platform'];
+const POINTS = [
+  'Free to explore the platform',
+  'Only basic contact details needed: no passwords or card details at sign-up',
+  'Educational resources included as you get started',
+];
 
 export default function Register() {
   return (
@@ -14,7 +18,7 @@ export default function Register() {
       </div>
 
       <div className="shell relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* Copy column — right on desktop (lg:order-2), above the form on mobile */}
+        {/* Copy column - right on desktop (lg:order-2), above the form on mobile */}
         <Reveal className="lg:order-2" delay={120}>
           <Eyebrow>Get Started</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
@@ -22,7 +26,7 @@ export default function Register() {
           </h2>
           <p className="mt-5 max-w-lg text-lg leading-relaxed text-steel">
             Registration is simple and secure. Tell us who you are and we&rsquo;ll help you set up a
-            workspace where you can explore market insights and analytics.
+            workspace where you can explore market insights, analytics and learning resources.
           </p>
 
           <ul className="mt-7 space-y-3.5">
@@ -48,7 +52,7 @@ export default function Register() {
           </div>
         </Reveal>
 
-        {/* Form column — left on desktop (lg:order-1), below the copy on mobile */}
+        {/* Form column - left on desktop (lg:order-1), below the copy on mobile */}
         <Reveal className="lg:order-1">
           <RegistrationForm />
         </Reveal>

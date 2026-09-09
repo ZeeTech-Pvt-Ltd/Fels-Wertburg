@@ -18,7 +18,7 @@ function buildPoints(data) {
 
 /**
  * Lightweight, dependency-free line/area chart rendered as inline SVG.
- * Purely decorative data visualisation — no chart library required.
+ * Purely decorative data visualisation - no chart library required.
  */
 export default function MiniChart({
   data,

@@ -13,7 +13,7 @@ export const LEGAL_DOCS = {
     sections: [
       {
         heading: 'Information we collect',
-        body: 'When you register, we collect only the basic details you provide — your first name, last name, email address and phone number. We do not ask for passwords, credit card details, bank account numbers, wallet keys or other sensitive financial information as part of registration.',
+        body: 'When you register, we collect only the basic details you provide: your first name, last name, email address and phone number. We do not ask for passwords, credit card details, bank account numbers, wallet keys or other sensitive financial information as part of registration.',
       },
       {
         heading: 'How we use it',
@@ -40,11 +40,11 @@ export const LEGAL_DOCS = {
       },
       {
         heading: 'Cookies and similar technologies we use',
-        body: 'We keep the cookies used on this website to a minimum. Where cookies or similar local storage are used, they are strictly necessary for the site to function — for example, remembering selections you have made on a page. We do not run advertising or profiling cookies on this website, and we do not sell information collected through cookies.',
+        body: 'We keep the cookies used on this website to a minimum. Where cookies or similar local storage are used, they are strictly necessary for the site to function (for example, remembering selections you have made on a page). We do not run advertising or profiling cookies on this website, and we do not sell information collected through cookies.',
       },
       {
         heading: 'Third-party services',
-        body: 'Like most websites, we rely on a small number of external services to deliver the site — for example, web fonts that improve how pages look, and our registration provider that securely processes the sign-up form. These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
+        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, web fonts that improve how pages look, and our registration provider that securely processes the sign-up form). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
       },
       {
         heading: 'Your choices',
@@ -67,7 +67,7 @@ export const LEGAL_DOCS = {
       },
       {
         heading: 'What the platform provides',
-        body: 'Fels Wertburg AI provides market information, analytics tools and data visualisation. Content is provided for general information and education only and should not be treated as a recommendation, offer or solicitation to buy or sell any financial product.',
+        body: 'Fels Wertburg AI provides market information, analytics tools, data visualisation and educational resources. Content is provided for general information and education only and should not be treated as a recommendation, offer or solicitation to buy or sell any financial product.',
       },
       {
         heading: 'Your responsibilities',
@@ -113,7 +113,7 @@ export const LEGAL_DOCS = {
     sections: [
       {
         heading: 'General information only',
-        body: 'Content on Fels Wertburg AI — including articles, charts, data and AI-assisted summaries — is general in nature and is not personal financial advice. It does not take into account your personal objectives, financial situation or needs.',
+        body: 'Content on Fels Wertburg AI (including articles, charts, data and AI-assisted summaries) is general in nature and is not personal financial advice. It does not take into account your personal objectives, financial situation or needs.',
       },
       {
         heading: 'No adviser relationship',

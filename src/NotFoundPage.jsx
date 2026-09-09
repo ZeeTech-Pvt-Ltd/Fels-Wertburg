@@ -33,7 +33,7 @@ export default function NotFoundPage() {
             This page has wandered off
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-steel">
-            The link may be broken or the page may have moved. Let&rsquo;s get you back on track &mdash;
+            The link may be broken or the page may have moved. Let&rsquo;s get you back on track:
             pick a destination below or head home.
           </p>
 

@@ -117,7 +117,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Form column — same RegistrationForm as the homepage */}
+          {/* Form column - same RegistrationForm as the homepage */}
           <div className="lg:col-span-7">
             <RegistrationForm />
           </div>

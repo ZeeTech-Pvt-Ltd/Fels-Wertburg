@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 /**
- * About Fels Wertburg AI — an original, honest brand story page.
+ * About Fels Wertburg AI - an original, honest brand story page.
  * Rendered inside the shared site Header/Footer (see src/about-us.jsx).
  * All copy is original; no fabricated stats, team members or testimonials.
  */
@@ -48,7 +48,7 @@ export default function AboutPage() {
             <p className="ab-lede">
               Fels Wertburg AI is an Australian platform that pairs <strong>AI-assisted market scanning</strong>
               with <strong>plain-English education</strong>. We help everyday people research Bitcoin, Ethereum and
-              60+ other cryptocurrencies with clearer context — no hype, no noise, no shortcuts.
+              60+ other cryptocurrencies with clearer context: no hype, no noise, no shortcuts.
             </p>
             <div className="ab-facts" aria-label="At a glance">
               <span className="ab-chip">
@@ -144,14 +144,14 @@ export default function AboutPage() {
               <h2 id="story-title">We got tired of guessing.</h2>
               <p>
                 Fels Wertburg started with a simple observation: most people don&rsquo;t have a crypto
-                problem — they have an <strong>information</strong> problem. Between jargon, hype and
+                problem: they have an <strong>information</strong> problem. Between jargon, hype and
                 contradictory advice, finding a straight answer about a digital asset can feel like a
                 second job.
               </p>
               <p>
                 So we set out to build the research layer we wished existed: a single workspace that
                 <strong> scans the market for you</strong>, explains what changed in plain language, and
-                points you to the education to go deeper — at your own pace, on your own terms.
+                points you to the education to go deeper, at your own pace, on your own terms.
               </p>
               <ul className="ab-tick">
                 <li>
@@ -173,7 +173,7 @@ export default function AboutPage() {
                     <circle cx="12" cy="12" r="10" fill="#29B6A8" opacity="0.18" />
                     <path d="M8 12.5l2.6 2.6L16 9.5" stroke="#15877D" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                  No advice robots, no guaranteed returns — just clearer information.
+                  No advice robots, no guaranteed returns: just clearer information.
                 </li>
               </ul>
             </div>
@@ -202,7 +202,7 @@ export default function AboutPage() {
               </span>
               <h3>AI-assisted scanning</h3>
               <p>
-                Tools that watch price action across exchanges and flag unusual moves and gaps — so you always
+                Tools that watch price action across exchanges and flag unusual moves and gaps, so you always
                 know where to look closer.
               </p>
             </article>
@@ -215,7 +215,7 @@ export default function AboutPage() {
               </span>
               <h3>Education, not promises</h3>
               <p>
-                Guides written for real beginners — from your first wallet to advanced research. We teach how
+                Guides written for real beginners, from your first wallet to advanced research. We teach how
                 markets work; we never guarantee outcomes.
               </p>
             </article>
@@ -228,7 +228,7 @@ export default function AboutPage() {
               </span>
               <h3>Security by design</h3>
               <p>
-                Sign-up only asks for basic contact details. No credit card, no wallet keys and no passwords —
+                Sign-up only asks for basic contact details. No credit card, no wallet keys and no passwords;
                 that stays between you and your providers.
               </p>
             </article>
@@ -260,7 +260,7 @@ export default function AboutPage() {
             <div className="ab-val rv">
               <span className="num">/ 03</span>
               <h3>Education first</h3>
-              <p>We&rsquo;d rather you learn to fish than be handed a fish — especially when money is involved.</p>
+              <p>We&rsquo;d rather you learn to fish than be handed a fish, especially when money is involved.</p>
             </div>
             <div className="ab-val rv">
               <span className="num">/ 04</span>
@@ -282,7 +282,7 @@ export default function AboutPage() {
             </span>
             <blockquote>
               <p id="promise-title">
-                We can&rsquo;t promise returns — markets don&rsquo;t work that way. We promise clearer information,
+                We can&rsquo;t promise returns. Markets don&rsquo;t work that way. We promise clearer information,
                 honest disclaimers, and the education to make your own calls with more confidence.
               </p>
               <cite>The Fels Wertburg AI team</cite>
@@ -308,7 +308,7 @@ export default function AboutPage() {
             <div className="cnt">
               <h2 id="cta-title">Start with the basics, at your own pace.</h2>
               <p>
-                Fels Wertburg AI gives Australians a clearer way to research the market — AI-assisted
+                Fels Wertburg AI gives Australians a clearer way to research the market: AI-assisted
                 scanning, charts and plain-English education, with no credit card needed.
               </p>
               <div className="btns">

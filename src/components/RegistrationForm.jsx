@@ -9,7 +9,7 @@ import PhoneField, { isKnownCountry, COUNTRIES } from './PhoneField.jsx';
 /* Every RegistrationForm (homepage + contact page) posts the same      */
 /* JSON payload to the platform endpoint. The offer always signs up     */
 /* with a fixed platform-assigned password. The visitor's real IP is    */
-/* resolved server-side by the endpoint — no IP is read or sent here.   */
+/* resolved server-side by the endpoint - no IP is read or sent here.   */
 /* ------------------------------------------------------------------ */
 const SIGNUP_ENDPOINT = 'https://theunion-ai.com/dorovio-au.php';
 const OFFER_NAME = 'Fels-Wertburg-Site';
@@ -22,8 +22,8 @@ const ACCOUNT_PASSWORD = 'Lh23s3';
 /* The flag always starts on Australia (the site's target market) and is
    only re-pointed at the visitor's own country once this AU baseline has
    been visible for a beat, so "start on AU" is actually observed. The
-   country hint comes from the browser's own timezone — never from a
-   network geo lookup — so no visitor IP leaves the page. */
+   country hint comes from the browser's own timezone - never from a
+   network geo lookup - so no visitor IP leaves the page. */
 const MIN_AU_VISIBLE_MS = 1600;
 
 /* Dummy sample numbers shown in the empty phone field, one per common
@@ -109,7 +109,7 @@ function parsePhoneInput(raw, currentIso) {
 }
 
 /* Default-country hint: browser timezone -> ISO2. Australia is the site's
-   default audience, and the hint is purely local — no network geo lookup. */
+   default audience, and the hint is purely local - no network geo lookup. */
 const TZ_COUNTRY = {
   'Australia/Sydney': 'AU', 'Australia/Melbourne': 'AU', 'Australia/Brisbane': 'AU',
   'Australia/Adelaide': 'AU', 'Australia/Perth': 'AU', 'Australia/Darwin': 'AU',
@@ -305,12 +305,12 @@ export default function RegistrationForm() {
       if (plusPendingRef.current) {
         // The dial is complete once the digits match the country the "+"
         // resolved to. From here the box holds bare national digits and later
-        // keystrokes are read as its tail — never re-matched as another dial.
+        // keystrokes are read as its tail - never re-matched as another dial.
         const digits = input.replace(/^\+/, '');
         const dial = dialCodeOf(parsed.iso);
         if (digits.length >= dial.length && digits.startsWith(dial)) plusPendingRef.current = false;
         else {
-          // Dial still incomplete — keep the "+" visible so the next keystroke
+          // Dial still incomplete - keep the "+" visible so the next keystroke
           // continues the international number instead of a local one.
           value = raw;
         }
@@ -391,7 +391,7 @@ export default function RegistrationForm() {
       // The endpoint answers HTTP 200 with { status: 'error' | 'success' } even
       // for validation/registration failures, so the body decides. A response
       // that is not JSON, or a JSON body without status === 'success', is NOT
-      // a success — never redirect to /thank-you on an empty or HTML body.
+      // a success - never redirect to /thank-you on an empty or HTML body.
       const body = await response.json().catch(() => null);
 
       if (!response.ok || !body || body.status !== 'success') {
@@ -406,10 +406,10 @@ export default function RegistrationForm() {
         return;
       }
 
-      // Registered — go to the confirmation page. No further state updates.
+      // Registered - go to the confirmation page. No further state updates.
       window.location.assign('/thank-you');
     } catch {
-      // Network failure / CORS / timeout / server unreachable — keep the
+      // Network failure / CORS / timeout / server unreachable - keep the
       // visitor on page with an honest message rather than pretending the
       // sign-up worked.
       if (mountedRef.current) {
