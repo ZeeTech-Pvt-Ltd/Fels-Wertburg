@@ -1,20 +1,16 @@
 import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
-import { LEGAL_DOCS } from './components/LegalModal.jsx';
+import { LEGAL_DOCS, LEGAL_LINKS } from './components/LegalModal.jsx';
 
 /**
- * Renders one legal document (Privacy Policy / Terms & Conditions / Risk
- * Disclosure) as a full standalone page, sharing the site Header/Footer.
- * Content comes from the same LEGAL_DOCS source as the quick-view dialog,
- * so the two can never drift apart.
+ * Renders one legal document (Privacy / Cookie / Terms / Risk / Disclaimer)
+ * as a full standalone page, sharing the site Header/Footer. Content comes
+ * from the same LEGAL_DOCS source as the quick-view dialog, and the sibling
+ * nav from LEGAL_LINKS, so the pages and dialog can never drift apart.
  */
 export default function LegalPage({ docKey }) {
   const doc = LEGAL_DOCS[docKey];
 
-  const siblings = [
-    { key: 'privacy', href: '/privacy-policy', label: 'Privacy Policy' },
-    { key: 'terms', href: '/terms-and-conditions', label: 'Terms & Conditions' },
-    { key: 'risk', href: '/risk-disclosure', label: 'Risk Disclosure' },
-  ];
+  const siblings = LEGAL_LINKS;
   const idx = siblings.findIndex((s) => s.key === docKey);
   const prev = siblings[idx - 1];
   const next = siblings[idx + 1];

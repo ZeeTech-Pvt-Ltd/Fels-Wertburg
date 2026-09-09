@@ -29,6 +29,33 @@ export const LEGAL_DOCS = {
       },
     ],
   },
+  cookie: {
+    title: 'Cookie Policy',
+    intro:
+      'This policy explains what cookies are, how Fels Wertburg AI uses them and the choices available to you. It should be read together with our Privacy Policy.',
+    sections: [
+      {
+        heading: 'What are cookies?',
+        body: 'Cookies are small text files placed on your device when you visit a website. They help the site remember information about your visit, such as preferences you have chosen, so it can work more smoothly.',
+      },
+      {
+        heading: 'Cookies and similar technologies we use',
+        body: 'We keep the cookies used on this website to a minimum. Where cookies or similar local storage are used, they are strictly necessary for the site to function — for example, remembering selections you have made on a page. We do not run advertising or profiling cookies on this website, and we do not sell information collected through cookies.',
+      },
+      {
+        heading: 'Third-party services',
+        body: 'Like most websites, we rely on a small number of external services to deliver the site — for example, web fonts that improve how pages look, and our registration provider that securely processes the sign-up form. These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
+      },
+      {
+        heading: 'Your choices',
+        body: 'Most browsers let you block or delete cookies and clear site data through their settings. Because a small number of cookies help the site function, blocking them may affect parts of the experience, such as the registration form or remembered preferences.',
+      },
+      {
+        heading: 'Changes and contact',
+        body: 'We may update this policy as the website and the services we rely on change. Any changes will be posted on this page. If you have questions about cookies or this policy, email us at support@fels-wertburgai.com.',
+      },
+    ],
+  },
   terms: {
     title: 'Terms & Conditions',
     intro:
@@ -79,7 +106,51 @@ export const LEGAL_DOCS = {
       },
     ],
   },
+  disclaimer: {
+    title: 'Disclaimer',
+    intro:
+      'The information on this website is provided in good faith for general information and education only. Please read this disclaimer before relying on anything you see here.',
+    sections: [
+      {
+        heading: 'General information only',
+        body: 'Content on Fels Wertburg AI — including articles, charts, data and AI-assisted summaries — is general in nature and is not personal financial advice. It does not take into account your personal objectives, financial situation or needs.',
+      },
+      {
+        heading: 'No adviser relationship',
+        body: 'Fels Wertburg AI is a research platform, not a financial adviser, and does not hold an Australian financial services licence. Nothing on this website is a recommendation, offer or solicitation to buy or sell any financial product, and we do not provide portfolio management services.',
+      },
+      {
+        heading: 'Accuracy and availability',
+        body: 'We take reasonable care to keep information accurate and current, but we do not warrant that all content is error-free, complete or up to date at the moment you read it. Market data can be delayed or revised. To the maximum extent permitted by law, we are not liable for any loss arising from reliance on this website.',
+      },
+      {
+        heading: 'Examples are illustrative',
+        body: 'Sample dashboards, figures, scenarios and examples shown on the website are illustrative only. They are not promises, forecasts or guarantees of future returns or of platform performance.',
+      },
+      {
+        heading: 'External links',
+        body: 'The website may link to third-party websites for convenience. We do not control those websites and are not responsible for their content, privacy practices or availability.',
+      },
+      {
+        heading: 'Your responsibility',
+        body: 'You are responsible for your own research and decisions. Consider seeking independent professional advice before acting on anything you read here. Nothing in this disclaimer limits or excludes any rights you may have under Australian consumer law.',
+      },
+    ],
+  },
 };
+
+/**
+ * The one place that defines the order, URL and display label of every legal
+ * document. The footer's Legal column and each legal page's prev/next
+ * navigation both read from here, so the pages can never drift out of order.
+ */
+export const LEGAL_LINKS = [
+  { key: 'privacy', href: '/privacy-policy', label: 'Privacy Policy' },
+  { key: 'cookie', href: '/cookie-policy', label: 'Cookie Policy' },
+  { key: 'terms', href: '/terms-and-conditions', label: 'Terms & Conditions' },
+  { key: 'risk', href: '/risk-disclosure', label: 'Risk Disclosure' },
+  { key: 'disclaimer', href: '/disclaimer', label: 'Disclaimer' },
+];
 
 /* ------------------------------------------------------------------ */
 /* Context                                                             */

@@ -1,5 +1,6 @@
 import { Clock, Mail, MapPin } from 'lucide-react';
 import Logo from './Logo.jsx';
+import { LEGAL_LINKS } from './LegalModal.jsx';
 
 const EXPLORE_LINKS = [
   { label: 'Home', href: '/#home' },
@@ -82,11 +83,7 @@ export default function Footer() {
           <nav aria-label="Legal" className="lg:col-span-2">
             <h3 className="text-sm font-bold uppercase tracking-wider text-white/60">Legal</h3>
             <ul className="mt-4 space-y-2.5">
-              {[
-                { href: '/privacy-policy', label: 'Privacy Policy' },
-                { href: '/terms-and-conditions', label: 'Terms & Conditions' },
-                { href: '/risk-disclosure', label: 'Risk Disclosure' },
-              ].map((doc) => (
+              {LEGAL_LINKS.map((doc) => (
                 <li key={doc.href}>
                   <a href={doc.href} className="text-sm text-white/75 transition hover:text-accent">
                     {doc.label}
@@ -122,7 +119,6 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
             <p>© 2026 Fels Wertburg AI. All rights reserved.</p>
-            <p>Made in Australia 🇦🇺</p>
           </div>
         </div>
       </div>

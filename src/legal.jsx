@@ -6,13 +6,16 @@ import Footer from './components/Footer.jsx';
 import './index.css';
 
 // Shared legal-page entry. Which document renders depends on the page URL,
-// so the three page folders (privacy-policy / terms-and-conditions /
-// risk-disclosure) mount this same file. The trailing slash is tolerated so
-// /privacy-policy and /privacy-policy/ both select the right document.
+// so every legal page folder (privacy-policy / cookie-policy /
+// terms-and-conditions / risk-disclosure / disclaimer) mounts this same
+// file. The trailing slash is tolerated so /privacy-policy and
+// /privacy-policy/ both select the right document.
 const DOC_BY_PATH = {
   '/privacy-policy': 'privacy',
+  '/cookie-policy': 'cookie',
   '/terms-and-conditions': 'terms',
   '/risk-disclosure': 'risk',
+  '/disclaimer': 'disclaimer',
 };
 
 function LegalApp() {
