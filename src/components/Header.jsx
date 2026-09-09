@@ -5,7 +5,7 @@ import Logo from './Logo.jsx';
 // Hrefs are cross-page safe (root-relative clean URLs, no .html): they work
 // both from the homepage (same-document scroll) and from sub-pages.
 const NAV_LINKS = [
-  { label: 'Home', href: '/#home' },
+  { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },

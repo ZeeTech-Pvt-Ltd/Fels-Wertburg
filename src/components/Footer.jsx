@@ -3,7 +3,7 @@ import Logo from './Logo.jsx';
 import { LEGAL_LINKS } from './LegalModal.jsx';
 
 const EXPLORE_LINKS = [
-  { label: 'Home', href: '/#home' },
+  { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
