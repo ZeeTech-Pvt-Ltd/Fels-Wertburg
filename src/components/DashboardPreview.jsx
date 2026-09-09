@@ -23,7 +23,7 @@ const ACTIVITY = [
 
 export default function DashboardPreview() {
   return (
-    <section aria-labelledby="preview-heading" className="relative overflow-hidden bg-canvas pb-16 sm:pb-24">
+    <section aria-labelledby="preview-heading" className="relative overflow-hidden bg-canvas pt-16 pb-16 sm:pt-24 sm:pb-24">
       <div className="shell">
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow center>

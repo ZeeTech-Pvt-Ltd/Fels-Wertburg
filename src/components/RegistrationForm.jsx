@@ -445,9 +445,12 @@ export default function RegistrationForm() {
     >
       <div className="flex items-center justify-between gap-3">
         <h3 className="text-lg font-bold text-primary">Create your account</h3>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-dark">
-          <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
-          Secure sign-up
+        <span
+          aria-label="Secure sign-up"
+          className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1.5 text-xs font-semibold text-accent-dark sm:px-3 sm:py-1"
+        >
+          <ShieldCheck className="h-4 w-4 shrink-0 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
+          <span className="hidden sm:inline">Secure sign-up</span>
         </span>
       </div>
       <p className="mt-1.5 text-sm text-steel">
