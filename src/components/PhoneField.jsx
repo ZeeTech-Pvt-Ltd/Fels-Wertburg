@@ -197,26 +197,12 @@ export default function PhoneField({
 }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [activeIdx, setActiveIdx] = useState(-1); // row highlighted by arrows / hover
   const rootRef = useRef(null);
+  const triggerRef = useRef(null);
+  const listRef = useRef(null);
 
   const selected = COUNTRIES.find(([c]) => c === iso) || COUNTRIES[0];
-
-  // Close on outside click and Escape.
-  useEffect(() => {
-    if (!open) return undefined;
-    const onPointerDown = (event) => {
-      if (rootRef.current && !rootRef.current.contains(event.target)) setOpen(false);
-    };
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') setOpen(false);
-    };
-    document.addEventListener('mousedown', onPointerDown);
-    document.addEventListener('keydown', onKeyDown);
-    return () => {
-      document.removeEventListener('mousedown', onPointerDown);
-      document.removeEventListener('keydown', onKeyDown);
-    };
-  }, [open]);
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -229,10 +215,87 @@ export default function PhoneField({
     );
   }, [query]);
 
+  const activeOptionId =
+    open && activeIdx >= 0 && results[activeIdx] ? `${id}-opt-${results[activeIdx][0]}` : undefined;
+
+  // Close on outside click; Escape closes and hands focus back to the flag
+  // trigger so keyboard users are never left stranded in the closed list.
+  useEffect(() => {
+    if (!open) return undefined;
+    const onPointerDown = (event) => {
+      if (rootRef.current && !rootRef.current.contains(event.target)) setOpen(false);
+    };
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        if (triggerRef.current) triggerRef.current.focus();
+      }
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
+
+  // Whenever the list opens or the filter changes, put the highlight on the
+  // current country (or the first match) so ArrowDown has a sensible start.
+  useEffect(() => {
+    if (!open) return;
+    const i = results.findIndex(([c]) => c === iso);
+    setActiveIdx(i >= 0 ? i : results.length ? 0 : -1);
+  }, [open, query]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Keep the highlighted row visible inside the scrollable list.
+  useEffect(() => {
+    if (!open || activeIdx < 0 || !listRef.current) return;
+    const node = listRef.current.children[activeIdx];
+    if (node && typeof node.scrollIntoView === 'function') {
+      node.scrollIntoView({ block: 'nearest' });
+    }
+  }, [open, activeIdx]);
+
   const selectCountry = (code) => {
     onIsoChange(code);
     setOpen(false);
     setQuery('');
+    setActiveIdx(-1);
+    // Return focus to the number field so the visitor can keep typing.
+    const tel = document.getElementById(id);
+    if (tel && typeof tel.focus === 'function') {
+      requestAnimationFrame(() => tel.focus());
+    }
+  };
+
+  const moveHighlight = (direction) => {
+    if (!results.length) return;
+    setActiveIdx((i) => {
+      if (i === -1) return direction === 'down' ? 0 : results.length - 1;
+      return direction === 'down' ? Math.min(results.length - 1, i + 1) : Math.max(0, i - 1);
+    });
+  };
+
+  const onSearchKeyDown = (event) => {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      moveHighlight('down');
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      moveHighlight('up');
+    } else if (event.key === 'Enter') {
+      event.preventDefault();
+      const code =
+        (activeIdx >= 0 && results[activeIdx] && results[activeIdx][0]) ||
+        (results.length && results[0][0]);
+      if (code) selectCountry(code);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      if (results.length) setActiveIdx(0);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      if (results.length) setActiveIdx(results.length - 1);
+    }
   };
 
   return (
@@ -243,11 +306,19 @@ export default function PhoneField({
         }`}
       >
         <button
+          ref={triggerRef}
           type="button"
           onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}
           aria-haspopup="listbox"
+          aria-controls={`${id}-country-list`}
           aria-label={`Country: ${selected[1]} (+${selected[2]})`}
+          onKeyDown={(event) => {
+            if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && !open) {
+              event.preventDefault();
+              setOpen(true);
+            }
+          }}
           className="flex shrink-0 items-center gap-1.5 border-r border-ink/10 bg-canvas/60 pl-3 pr-2.5 transition hover:bg-canvas"
         >
           <img
@@ -294,56 +365,62 @@ export default function PhoneField({
               role="combobox"
               aria-expanded="true"
               aria-controls={`${id}-country-list`}
+              aria-activedescendant={activeOptionId}
               aria-label="Search countries"
               placeholder="Search country or code"
               autoComplete="off"
               autoFocus
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' && results.length) {
-                  event.preventDefault();
-                  selectCountry(results[0][0]);
-                }
-              }}
+              onKeyDown={onSearchKeyDown}
               className="w-full border-0 bg-transparent py-1 text-sm text-ink placeholder:text-muted/60 focus:outline-none"
             />
           </div>
 
           <ul
+            ref={listRef}
             id={`${id}-country-list`}
             role="listbox"
             aria-label="Countries"
             className="max-h-60 overflow-y-auto p-1.5"
           >
-            {results.map(([code, countryName, dial]) => {
+            {results.map(([code, countryName, dial], idx) => {
               const active = code === iso;
+              const highlighted = idx === activeIdx;
               return (
-                <li key={code} role="option" aria-selected={active}>
-                  <button
-                    type="button"
-                    onClick={() => selectCountry(code)}
-                    className={`flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left transition ${
-                      active ? 'bg-accent/10 text-primary' : 'text-ink hover:bg-canvas'
-                    }`}
-                  >
-                    <img
-                      src={flagUrl(code)}
-                      alt=""
-                      width="20"
-                      height="15"
-                      loading="lazy"
-                      className="h-[15px] w-5 shrink-0 rounded-[2px] object-cover shadow-[0_0_0_1px_rgba(16,42,67,0.08)]"
-                      onError={(event) => {
-                        event.currentTarget.style.visibility = 'hidden';
-                      }}
-                    />
-                    <span className="min-w-0 flex-1 truncate text-sm">{countryName}</span>
-                    <span className="shrink-0 text-xs font-medium tabular-nums text-muted">
-                      +{dial}
-                    </span>
-                    {active && <Check className="h-4 w-4 shrink-0 text-accent-dark" aria-hidden="true" />}
-                  </button>
+                <li
+                  key={code}
+                  id={`${id}-opt-${code}`}
+                  role="option"
+                  aria-selected={active}
+                  onClick={() => selectCountry(code)}
+                  onMouseEnter={() => setActiveIdx(idx)}
+                  className={`flex w-full cursor-pointer select-none items-center gap-2.5 rounded-lg px-2.5 py-2 text-left transition ${
+                    highlighted
+                      ? active
+                        ? 'bg-accent/10 text-primary ring-1 ring-inset ring-accent/30'
+                        : 'bg-canvas ring-1 ring-inset ring-ink/10'
+                      : active
+                        ? 'bg-accent/10 text-primary'
+                        : 'text-ink hover:bg-canvas'
+                  }`}
+                >
+                  <img
+                    src={flagUrl(code)}
+                    alt=""
+                    width="20"
+                    height="15"
+                    loading="lazy"
+                    className="h-[15px] w-5 shrink-0 rounded-[2px] object-cover shadow-[0_0_0_1px_rgba(16,42,67,0.08)]"
+                    onError={(event) => {
+                      event.currentTarget.style.visibility = 'hidden';
+                    }}
+                  />
+                  <span className="min-w-0 flex-1 truncate text-sm">{countryName}</span>
+                  <span className="shrink-0 text-xs font-medium tabular-nums text-muted">
+                    +{dial}
+                  </span>
+                  {active && <Check className="h-4 w-4 shrink-0 text-accent-dark" aria-hidden="true" />}
                 </li>
               );
             })}

@@ -15,6 +15,14 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Current path for highlighting the active nav link. This is a multi-page
+  // site (no SPA router), so the value is stable for the life of each page.
+  const [pathname] = useState(() => (typeof window === 'undefined' ? '' : window.location.pathname));
+  const isActive = (href) => {
+    const linkPath = href.split('#')[0];
+    return linkPath === pathname || (pathname === '/' && href.startsWith('/#'));
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -57,20 +65,28 @@ export default function Header() {
         {/* Desktop navigation */}
         <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-7">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="group relative text-sm font-medium text-steel transition hover:text-primary"
-                >
-                  {link.label}
-                  <span
-                    aria-hidden="true"
-                    className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-accent transition-all duration-300 group-hover:w-full"
-                  />
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={`group relative text-sm font-medium transition hover:text-primary ${
+                      active ? 'text-primary' : 'text-steel'
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -bottom-1 left-0 h-0.5 rounded-full bg-accent transition-all duration-300 ${
+                        active ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -98,18 +114,24 @@ export default function Header() {
       <div id="mobile-menu" className={`lg:hidden ${open ? 'block' : 'hidden'}`}>
         <nav aria-label="Mobile navigation" className="border-t border-ink/5 bg-white/95 px-5 pb-6 pt-2 shadow-card">
           <ul className="flex flex-col">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="flex items-center justify-between border-b border-ink/5 py-3.5 text-[15px] font-medium text-primary transition hover:text-secondary"
-                >
-                  {link.label}
-                  <ArrowRight className="h-4 w-4 text-muted/70" aria-hidden="true" />
-                </a>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={closeMenu}
+                    aria-current={active ? 'page' : undefined}
+                    className={`flex items-center justify-between border-b border-ink/5 py-3.5 text-[15px] font-medium transition hover:text-secondary ${
+                      active ? 'font-semibold text-accent-dark' : 'text-primary'
+                    }`}
+                  >
+                    {link.label}
+                    <ArrowRight className="h-4 w-4 text-muted/70" aria-hidden="true" />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <a href="/#register" onClick={closeMenu} className="btn-primary mt-5 w-full">
             Get Started

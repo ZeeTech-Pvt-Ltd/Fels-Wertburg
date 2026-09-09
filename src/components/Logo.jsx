@@ -23,7 +23,7 @@ export function LogoMark({ className = 'h-5 w-5' }) {
   );
 }
 
-export default function Logo({ tone = 'light', compact = false }) {
+export default function Logo({ tone = 'light' }) {
   const onDark = tone === 'dark';
   const textColor = onDark ? 'text-white' : 'text-ink';
   return (
@@ -41,11 +41,7 @@ export default function Logo({ tone = 'light', compact = false }) {
       >
         <LogoMark className="h-[18px] w-[18px]" />
       </span>
-      <span
-        className={`font-display text-lg font-extrabold tracking-tight ${textColor} ${
-          compact ? 'text-base' : ''
-        }`}
-      >
+      <span className={`font-display text-lg font-extrabold tracking-tight ${textColor}`}>
         Fels Wertburg{' '}
         <span className={onDark ? 'text-accent' : 'text-secondary'}>AI</span>
       </span>

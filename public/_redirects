@@ -1,0 +1,4 @@
+# Static-host 404 fallback (Netlify / Cloudflare Pages / Vercel syntax).
+# Unknown routes fall through to the branded /404 page; the "404" status
+# keeps the response a genuine not-found for crawlers.
+/*    /404.html    404

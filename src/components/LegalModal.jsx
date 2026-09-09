@@ -182,10 +182,6 @@ function LegalDialog({ docKey, onClose }) {
               <p className="text-sm leading-relaxed text-steel">{section.body}</p>
             </section>
           ))}
-          <p className="border-t border-ink/10 pt-4 text-xs leading-relaxed text-muted">
-            These documents are a starting template. Please review and finalise them with a
-            qualified legal professional before publishing.
-          </p>
         </div>
       </div>
     </div>

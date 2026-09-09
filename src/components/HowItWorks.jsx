@@ -25,7 +25,7 @@ export default function HowItWorks() {
     <section id="how-it-works" className="section overflow-hidden bg-white">
       <div className="shell">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow center index={4}>
+          <Eyebrow center>
             How It Works
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">

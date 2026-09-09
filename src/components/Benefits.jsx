@@ -17,7 +17,7 @@ export default function Benefits() {
       <div className="shell grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         {/* Left copy */}
         <Reveal>
-          <Eyebrow index={6}>Why Fels Wertburg AI</Eyebrow>
+          <Eyebrow>Why Fels Wertburg AI</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
             Built for Clarity, Not Complexity
           </h2>

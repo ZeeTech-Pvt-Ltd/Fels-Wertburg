@@ -1,5 +1,5 @@
 import { ArrowRight, HelpCircle, MessageCircle, Sparkles } from 'lucide-react';
-import { FaqAccordion } from './components/FAQ.jsx';
+import { FAQS, FaqAccordion } from './components/FAQ.jsx';
 
 /**
  * The dedicated FAQ page. The accordion is the exact same component the
@@ -7,8 +7,24 @@ import { FaqAccordion } from './components/FAQ.jsx';
  * ids can never drift between the two. Rendered inside the shared Header/Footer.
  */
 export default function FAQPage() {
+  // FAQPage structured data, generated from the same FAQS used on screen so it
+  // can never drift from the visible questions.
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+
   return (
     <div className="section">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
+      />
       <div className="shell">
         {/* Page header */}
         <header className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-deep to-primary px-6 py-10 text-white shadow-card sm:px-10 sm:py-12">
@@ -34,7 +50,8 @@ export default function FAQPage() {
         {/* Accordion + sidebar */}
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-8">
-            <FaqAccordion />
+            {/* h1 -> h2 keeps the heading hierarchy sequential on this page */}
+            <FaqAccordion headingLevel="h2" />
           </div>
 
           <aside className="space-y-5 lg:col-span-4" aria-label="More help">

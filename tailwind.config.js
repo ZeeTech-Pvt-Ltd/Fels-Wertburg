@@ -51,23 +51,13 @@ export default {
         glow: '0 12px 36px -14px rgba(41, 182, 168, 0.55)',
       },
       keyframes: {
-        'fade-up': {
-          '0%': { opacity: '0', transform: 'translateY(14px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-8px)' },
         },
-        tick: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-26px)' },
-        },
       },
       animation: {
-        'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
         float: 'float 7s ease-in-out infinite',
-        ticker: 'tick 18s linear infinite',
       },
     },
   },

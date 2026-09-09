@@ -37,12 +37,12 @@ export const FAQS = [
   },
 ];
 
-function FaqItem({ item, open, onToggle, index }) {
+function FaqItem({ item, open, onToggle, index, heading: Heading = 'h3' }) {
   const panelId = `faq-panel-${index}`;
   const buttonId = `faq-button-${index}`;
   return (
     <div className="overflow-hidden rounded-2xl border border-ink/5 bg-white shadow-card transition hover:border-ink/10">
-      <h3>
+      <Heading>
         <button
           id={buttonId}
           type="button"
@@ -61,7 +61,7 @@ function FaqItem({ item, open, onToggle, index }) {
             <ChevronDown className="h-4 w-4" />
           </span>
         </button>
-      </h3>
+      </Heading>
       <div
         id={panelId}
         role="region"
@@ -83,7 +83,7 @@ function FaqItem({ item, open, onToggle, index }) {
  * dedicated FAQ page (src/FAQPage.jsx). Keeping it here means both pages can
  * never drift apart: same questions, same ids, same interaction.
  */
-export function FaqAccordion() {
+export function FaqAccordion({ headingLevel = 'h3' }) {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
@@ -93,6 +93,7 @@ export function FaqAccordion() {
           key={item.q}
           item={item}
           index={index}
+          heading={headingLevel}
           open={openIndex === index}
           onToggle={() => setOpenIndex((current) => (current === index ? null : index))}
         />
@@ -107,7 +108,7 @@ export default function FAQ() {
       <div className="shell grid gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Intro column */}
         <div className="lg:col-span-5">
-          <Eyebrow index={8}>FAQ</Eyebrow>
+          <Eyebrow>FAQ</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
             Questions, answered
           </h2>

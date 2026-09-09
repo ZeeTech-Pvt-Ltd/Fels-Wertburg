@@ -11,6 +11,10 @@
     scroll-behavior: smooth;
     /* Offset anchored scrolling so content clears the sticky header. */
     scroll-padding-top: 92px;
+    /* Clip (not hidden: no scroll container, sticky header unaffected) any
+       stray horizontal overflow at the root so a 320px viewport never gains a
+       horizontal scrollbar. */
+    overflow-x: clip;
   }
 
   body {

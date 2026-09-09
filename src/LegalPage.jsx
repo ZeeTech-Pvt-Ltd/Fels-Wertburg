@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, FileText, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
 import { LEGAL_DOCS } from './components/LegalModal.jsx';
 
 /**
@@ -51,14 +51,6 @@ export default function LegalPage({ docKey }) {
               <p className="mt-3 text-[15px] leading-relaxed text-steel">{section.body}</p>
             </section>
           ))}
-
-          <div className="flex items-start gap-3 rounded-b-3xl bg-canvas px-6 py-5 sm:px-10">
-            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-            <p className="text-xs leading-relaxed text-muted">
-              These documents are a starting template. Please review and finalise them with a
-              qualified legal professional before publishing.
-            </p>
-          </div>
         </div>
 
         {/* Prev / next + home */}

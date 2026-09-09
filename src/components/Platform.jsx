@@ -171,7 +171,7 @@ export default function Platform() {
       <div className="shell grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Copy */}
         <Reveal className="lg:col-span-5">
-          <Eyebrow index={2}>The Platform</Eyebrow>
+          <Eyebrow>The Platform</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
             Everything You Need to Research Crypto Markets
           </h2>

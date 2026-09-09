@@ -20,7 +20,7 @@ export default function Register() {
       <div className="shell relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Copy column — right on desktop (lg:order-2), above the form on mobile */}
         <Reveal className="lg:order-2" delay={120}>
-          <Eyebrow index={1}>Get Started</Eyebrow>
+          <Eyebrow>Get Started</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
             Join Fels Wertburg AI in just a few minutes
           </h2>

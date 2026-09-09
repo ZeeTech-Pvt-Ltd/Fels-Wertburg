@@ -26,7 +26,7 @@ export default function DashboardPreview() {
     <section aria-labelledby="preview-heading" className="relative overflow-hidden bg-canvas pb-16 sm:pb-24">
       <div className="shell">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow center index={5}>
+          <Eyebrow center>
             Product Tour
           </Eyebrow>
           <h2 id="preview-heading" className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">

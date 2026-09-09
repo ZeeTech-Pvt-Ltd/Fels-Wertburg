@@ -6,17 +6,17 @@ const TESTIMONIALS = [
   {
     quote: 'Simple to navigate and easy to understand.',
     theme: 'Navigation',
-    note: 'Illustrative example reflecting common user feedback.',
+    note: 'Illustrative example — not a real customer.',
   },
   {
     quote: 'Having market information organised in one place makes research much easier.',
     theme: 'Organisation',
-    note: 'Illustrative example reflecting common user feedback.',
+    note: 'Illustrative example — not a real customer.',
   },
   {
     quote: 'The interface feels clean and straightforward.',
     theme: 'Interface',
-    note: 'Illustrative example reflecting common user feedback.',
+    note: 'Illustrative example — not a real customer.',
   },
 ];
 
@@ -29,14 +29,15 @@ export default function Testimonials() {
 
       <div className="shell relative">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow center index={7}>
-            What Users Value
+          <Eyebrow center>
+            What We Aim For
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Feedback that shapes what we build
+            The experience we&rsquo;re building toward
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
-            The qualities people tell us they appreciate most about the Fels Wertburg AI experience.
+            Three qualities at the heart of the platform. Each one is shown as an illustrative
+            example rather than a real customer&rsquo;s endorsement.
           </p>
         </div>
 

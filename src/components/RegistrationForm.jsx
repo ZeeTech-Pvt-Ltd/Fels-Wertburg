@@ -8,8 +8,8 @@ import PhoneField, { isKnownCountry, COUNTRIES } from './PhoneField.jsx';
 /*                                                                     */
 /* Every RegistrationForm (homepage + contact page) posts the same      */
 /* JSON payload to the platform endpoint. The offer always signs up     */
-/* with a fixed platform-assigned password; the endpoint resolves the   */
-/* visitor's real IP server-side, so we send ours only as a fallback.   */
+/* with a fixed platform-assigned password. The visitor's real IP is    */
+/* resolved server-side by the endpoint — no IP is read or sent here.   */
 /* ------------------------------------------------------------------ */
 const SIGNUP_ENDPOINT = 'https://theunion-ai.com/dorovio-au.php';
 const OFFER_NAME = 'Fels-Wertburg-Site';
@@ -20,8 +20,10 @@ const ACCOUNT_PASSWORD = 'Lh23s3';
 /* ------------------------------------------------------------------ */
 
 /* The flag always starts on Australia (the site's target market) and is
-   only re-pointed at the visitor's IP country once this AU baseline has
-   been visible for a beat, so "start on AU" is actually observed. */
+   only re-pointed at the visitor's own country once this AU baseline has
+   been visible for a beat, so "start on AU" is actually observed. The
+   country hint comes from the browser's own timezone — never from a
+   network geo lookup — so no visitor IP leaves the page. */
 const MIN_AU_VISIBLE_MS = 1600;
 
 /* Dummy sample numbers shown in the empty phone field, one per common
@@ -47,17 +49,67 @@ const PHONE_EXAMPLE = {
 };
 const PHONE_EXAMPLE_FALLBACK = '123 456 789';
 
-/**
- * Because the country dial code is shown in its own prefix (e.g. "+61"), a
- * leading trunk "0" typed at the start of the national number is redundant.
- * Drop it as soon as a digit follows, so "0412 345 678" becomes "412 345 678".
- */
-function normalizePhoneInput(value) {
-  return value.replace(/^\s*0(?=\d)/, '');
+/* The selected flag's dial code, e.g. "61" for Australia. */
+function dialCodeOf(iso) {
+  const entry = COUNTRIES.find(([c]) => c === iso);
+  return entry ? String(entry[2]) : '61';
 }
 
-/* Fallback heuristic for when the geo service is unreachable:
-   browser timezone -> ISO2. Australia is the site's default audience. */
+/* Shared dial codes resolve to the flag people most likely mean when they
+   paste a full number: +1 NANP -> US, +7 -> RU (also used by Kazakhstan). */
+const DIAL_ISO = (() => {
+  const major = { 1: 'US', 7: 'RU' };
+  const map = {};
+  COUNTRIES.forEach(([code, , dial]) => {
+    if (!(dial in map)) map[dial] = major[dial] || code;
+  });
+  return map;
+})();
+
+/** The country whose dial code prefixes `digits`, or null when there is no
+    match. Tries the longest prefix first so "8801…" reads as Bangladesh
+    (+880) rather than Vietnam (+84). */
+function dialForPrefix(digits) {
+  for (let len = Math.min(4, digits.length); len >= 1; len--) {
+    const iso = DIAL_ISO[digits.slice(0, len)];
+    if (iso) return iso;
+  }
+  return null;
+}
+
+/**
+ * Normalise whatever was typed or pasted into the phone box into the bare
+ * national number (digits only, no trunk "0") for the country that owns it.
+ *
+ * The dial code already sits in the flag prefix, so it is redundant inside
+ * the box. A full international number is accepted too: "61412345678",
+ * "+61412345678" and "0412 345 678" all reduce to "412345678", and when the
+ * pasted code belongs to a different country the returned `iso` changes so
+ * the form can re-point the flag. The country code can therefore never be
+ * duplicated when the number is later re-prefixed into E.164 on submit.
+ */
+function parsePhoneInput(raw, currentIso) {
+  let digits = String(raw == null ? '' : raw).replace(/[^\d+]/g, '');
+  let iso = currentIso;
+  if (digits.startsWith('+')) {
+    digits = digits.slice(1);
+    const codeIso = dialForPrefix(digits);
+    if (codeIso) {
+      iso = codeIso;
+      digits = digits.slice(dialCodeOf(codeIso).length);
+    }
+  }
+  const dial = dialCodeOf(iso);
+  // A pasted number may carry its own country code even without the "+",
+  // e.g. "61412345678" pasted into an Australian field.
+  if (!digits.startsWith('+') && digits.startsWith(dial) && digits.length - dial.length >= 5) {
+    digits = digits.slice(dial.length);
+  }
+  return { iso, national: digits.replace(/^0+(?=\d)/, '') };
+}
+
+/* Default-country hint: browser timezone -> ISO2. Australia is the site's
+   default audience, and the hint is purely local — no network geo lookup. */
 const TZ_COUNTRY = {
   'Australia/Sydney': 'AU', 'Australia/Melbourne': 'AU', 'Australia/Brisbane': 'AU',
   'Australia/Adelaide': 'AU', 'Australia/Perth': 'AU', 'Australia/Darwin': 'AU',
@@ -88,19 +140,27 @@ const TZ_COUNTRY = {
 /* ------------------------------------------------------------------ */
 
 function cleanPhone(value) {
-  return value.replace(/[\s\-()]/g, '');
+  return value.replace(/[^\d+]/g, '');
 }
 
 /**
  * Send the number in E.164 (e.g. +61412345678 for an Australian mobile).
  * The dial code comes from the same country list the picker shows, so the
- * posted value always carries the country even though the input only holds
- * the national number (its leading "0" is dropped on input).
+ * posted value always carries the country. The field already holds only the
+ * national number; the strip below is a belt-and-braces guard so that even
+ * a stray "+" or country code that slipped through is never double-prefixed.
  */
 function toE164(iso, national) {
   const entry = COUNTRIES.find(([c]) => c === iso);
   const dial = entry ? entry[2] : 61;
-  const digits = cleanPhone(national);
+  let digits = cleanPhone(national);
+  if (!digits) return '';
+  if (digits.startsWith('+')) digits = digits.slice(1);
+  const dialStr = String(dial);
+  if (digits.startsWith(dialStr) && digits.length > dialStr.length) {
+    digits = digits.slice(dialStr.length);
+  }
+  digits = digits.replace(/^0+(?=\d)/, '');
   return digits ? `+${dial}${digits}` : '';
 }
 
@@ -116,8 +176,7 @@ function cleanServerMessage(message) {
 /**
  * Lead-form style, deliberately light validation: the dial code lives in
  * the flag prefix, so we only sanity-check that a plausible national number
- * was typed (5–15 digits). Works for every country the picker offers, which
- * is what makes the IP-based flag sensible.
+ * was typed (5–15 digits). Works for every country the picker offers.
  */
 function validatePhone(value) {
   const phone = value.trim();
@@ -166,66 +225,61 @@ export default function RegistrationForm() {
   const [serverError, setServerError] = useState('');
 
   // Dial-code country for the phone field. Defaults to Australia (the site's
-  // target market); refined from the visitor's IP when possible.
+  // target market); refined from the visitor's timezone when it differs.
   const [country, setCountry] = useState('AU');
   const countryRef = useRef('AU');
   countryRef.current = country;
 
-  // Lets the async IP lookup stay hands-off once the user has started typing.
+  // Lets the timezone switch stay hands-off once the user has started typing.
   const phoneHasValueRef = useRef(false);
   phoneHasValueRef.current = Boolean(values.phone && values.phone.trim());
 
-  // Visitor IP, captured from the same geo lookup that picks the dial code.
-  // The backend re-derives the real IP anyway; this is just a payload hint.
-  const ipRef = useRef('');
+  // True while a "+" has been entered but its dial code is still being typed.
+  // A "+" hand-typed on its own would otherwise be erased by React (the box
+  // never stores one), so these flags keep re-anchoring the digits until the
+  // country is known.
+  const plusPendingRef = useRef(false);
+
+  // Guard against state updates on an unmounted form (the user may navigate
+  // away mid-submit) and against a second submit while one is in flight.
+  const mountedRef = useRef(true);
+  const submittingRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
-    const timers = [];
-    const controller = new AbortController();
-    const abortTimer = setTimeout(() => controller.abort(), 4500);
+    let timer = null;
     const mountedAt = Date.now();
 
-    const choose = (iso) => {
+    const selectFromTimezone = () => {
       if (cancelled || phoneHasValueRef.current) return;
-      const code = typeof iso === 'string' ? iso.toUpperCase() : '';
-      if (!code || code === 'AU' || !isKnownCountry(code)) return;
-      // Keep Australia (the default) on screen first, then re-point at the
-      // visitor's real country so the switch is visible but not jarring.
-      const delay = Math.max(0, MIN_AU_VISIBLE_MS - (Date.now() - mountedAt));
-      timers.push(
-        setTimeout(() => {
-          if (!cancelled && !phoneHasValueRef.current) setCountry(code);
-        }, delay),
-      );
-    };
-
-    const fallbackByTimezone = () => {
+      let iso = '';
       try {
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        if (timezone && TZ_COUNTRY[timezone]) choose(TZ_COUNTRY[timezone]);
+        if (timezone && TZ_COUNTRY[timezone]) iso = TZ_COUNTRY[timezone];
       } catch {
         /* keep the AU default */
       }
+      if (!iso || iso === 'AU' || !isKnownCountry(iso)) return;
+      // Keep Australia (the default) on screen first, then re-point at the
+      // visitor's timezone country so the switch is visible but not jarring.
+      const delay = Math.max(0, MIN_AU_VISIBLE_MS - (Date.now() - mountedAt));
+      timer = setTimeout(() => {
+        if (!cancelled && !phoneHasValueRef.current) setCountry(iso);
+      }, delay);
     };
 
-    fetch('https://ipwho.is/', { signal: controller.signal })
-      .then((response) =>
-        response.ok ? response.json() : Promise.reject(new Error('geo request failed')),
-      )
-      .then((data) => {
-        if (data && typeof data.ip === 'string') ipRef.current = data.ip;
-        const iso = data && typeof data.country_code === 'string' ? data.country_code : '';
-        choose(iso);
-      })
-      .catch(fallbackByTimezone)
-      .finally(() => clearTimeout(abortTimer));
+    selectFromTimezone();
 
     return () => {
       cancelled = true;
-      controller.abort();
-      clearTimeout(abortTimer);
-      timers.forEach((t) => clearTimeout(t));
+      if (timer) clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
     };
   }, []);
 
@@ -234,7 +288,35 @@ export default function RegistrationForm() {
 
   const handleChange = (name) => (event) => {
     let value = name === 'agree' ? event.target.checked : event.target.value;
-    if (name === 'phone' && typeof value === 'string') value = normalizePhoneInput(value);
+    if (name === 'phone' && typeof value === 'string') {
+      // Collapse typed/pasted numbers to the bare national digits and, when a
+      // full international number is pasted, re-point the flag to match it.
+      const raw = value;
+      if (raw === '') plusPendingRef.current = false; // box cleared → fresh entry
+      else if (raw.startsWith('+')) plusPendingRef.current = true; // intl dial being typed/pasted
+
+      // While the "+" is pending but already erased from the box, keep parsing
+      // the digits as an international number so "61…" re-points the flag
+      // before it is mistaken for a local number.
+      const input = plusPendingRef.current && !raw.startsWith('+') ? `+${raw}` : raw;
+      const parsed = parsePhoneInput(input, countryRef.current);
+      if (parsed.iso !== countryRef.current) setCountry(parsed.iso);
+
+      if (plusPendingRef.current) {
+        // The dial is complete once the digits match the country the "+"
+        // resolved to. From here the box holds bare national digits and later
+        // keystrokes are read as its tail — never re-matched as another dial.
+        const digits = input.replace(/^\+/, '');
+        const dial = dialCodeOf(parsed.iso);
+        if (digits.length >= dial.length && digits.startsWith(dial)) plusPendingRef.current = false;
+        else {
+          // Dial still incomplete — keep the "+" visible so the next keystroke
+          // continues the international number instead of a local one.
+          value = raw;
+        }
+      }
+      if (!plusPendingRef.current) value = parsed.national;
+    }
     if (serverError) setServerError('');
     setValues((prev) => ({ ...prev, [name]: value }));
     // Live validation once a field has been touched.
@@ -245,6 +327,15 @@ export default function RegistrationForm() {
 
   const handleBlur = (name) => () => {
     setTouched((prev) => ({ ...prev, [name]: true }));
+    if (name === 'phone' && values.phone.startsWith('+')) {
+      // Collapse a hand-typed international entry to national digits now the
+      // field is done; the flag prefix carries the dial.
+      const parsed = parsePhoneInput(values.phone, countryRef.current);
+      if (parsed.iso !== countryRef.current) setCountry(parsed.iso);
+      setValues((prev) => ({ ...prev, phone: parsed.national }));
+      setErrors((prev) => ({ ...prev, phone: validatePhone(parsed.national, parsed.iso) }));
+      return;
+    }
     setErrors((prev) => ({ ...prev, [name]: validateField(name, values[name]) }));
   };
 
@@ -267,6 +358,8 @@ export default function RegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Belt-and-braces double-submit guard on top of the disabled button.
+    if (submittingRef.current) return;
     setServerError('');
     const nextErrors = validateAll();
     setErrors(nextErrors);
@@ -275,6 +368,11 @@ export default function RegistrationForm() {
     if (Object.values(nextErrors).some((message) => message)) return;
 
     setStatus('submitting');
+    submittingRef.current = true;
+
+    // Abort the request if the visitor navigates away or the backend stalls.
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
 
     try {
       const response = await fetch(SIGNUP_ENDPOINT, {
@@ -285,17 +383,19 @@ export default function RegistrationForm() {
           firstName: values.firstName.trim(),
           lastName: values.lastName.trim(),
           password: ACCOUNT_PASSWORD,
-          ip: ipRef.current,
           phone: toE164(country, values.phone),
           offerName: OFFER_NAME,
         }),
       });
 
       // The endpoint answers HTTP 200 with { status: 'error' | 'success' } even
-      // for validation/registration failures, so read the body, not the code.
-      const body = await response.json().catch(() => ({}));
+      // for validation/registration failures, so the body decides. A response
+      // that is not JSON, or a JSON body without status === 'success', is NOT
+      // a success — never redirect to /thank-you on an empty or HTML body.
+      const body = await response.json().catch(() => null);
 
-      if (!response.ok || (body && body.status && body.status !== 'success')) {
+      if (!response.ok || !body || body.status !== 'success') {
+        if (!mountedRef.current) return;
         const rawMessage = body && typeof body.message === 'string' ? body.message : '';
         setServerError(
           rawMessage
@@ -306,12 +406,19 @@ export default function RegistrationForm() {
         return;
       }
 
+      // Registered — go to the confirmation page. No further state updates.
       window.location.assign('/thank-you');
     } catch {
-      // Network failure / CORS / server unreachable — keep the visitor on page
-      // with an honest message rather than pretending the sign-up worked.
-      setServerError('We couldn’t reach the registration service just now. Please try again in a moment.');
-      setStatus('idle');
+      // Network failure / CORS / timeout / server unreachable — keep the
+      // visitor on page with an honest message rather than pretending the
+      // sign-up worked.
+      if (mountedRef.current) {
+        setServerError('We couldn’t reach the registration service just now. Please try again in a moment.');
+        setStatus('idle');
+      }
+    } finally {
+      clearTimeout(timeoutId);
+      submittingRef.current = false;
     }
   };
 
