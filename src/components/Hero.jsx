@@ -36,12 +36,12 @@ export default function Hero() {
       <div className="shell section relative grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
         {/* ------------------------- Left: copy ------------------------- */}
         <div className="lg:col-span-6">
-          <p className="eyebrow">
+          <p className="eyebrow" style={{ letterSpacing: '1px' }}>
             <LogoMark className="h-4 w-4 text-accent-dark" />
             Smart Tools for Modern Markets
           </p>
 
-          <h1 className="mt-6 text-[clamp(2.2rem,6vw,3.75rem)] font-extrabold leading-[1.06] tracking-tight text-primary">
+          <h1 className="mt-6 text-[34px] font-extrabold leading-[1.08] tracking-tight text-primary">
             Make More Informed{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
@@ -103,9 +103,9 @@ export default function Hero() {
             {/* Glow tile behind the dashboard */}
             <div className="absolute -inset-3 -rotate-1 rounded-[2rem] bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/20 blur-xl" />
 
-            <div className="relative rounded-3xl border border-white/70 bg-white/70 p-4 shadow-soft backdrop-blur-sm sm:p-5">
+            <div className="relative rounded-3xl border border-white/70 bg-white/70 p-3 shadow-soft backdrop-blur-sm sm:p-5">
               {/* Window chrome */}
-              <div className="flex items-center justify-between gap-3 px-1 pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 pb-3 sm:px-1 sm:pb-4">
                 <div className="flex items-center gap-2">
                   <span className="flex gap-1.5">
                     <i className="h-2.5 w-2.5 rounded-full bg-red-300" />
@@ -114,14 +114,14 @@ export default function Hero() {
                   </span>
                   <span className="ml-2 text-sm font-semibold text-primary">Market dashboard</span>
                 </div>
-                <span className="rounded-full bg-canvas px-2.5 py-1 text-[11px] font-medium text-muted">
+                <span className="whitespace-nowrap rounded-full bg-canvas px-2.5 py-1 text-[10px] font-medium text-muted sm:text-[11px]">
                   Illustrative example
                 </span>
               </div>
 
               {/* Stat tiles */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-ink/5 bg-white p-4">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                <div className="rounded-2xl border border-ink/5 bg-white p-3 sm:p-4">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <p className="text-xs font-medium text-muted">Market coverage</p>
@@ -157,7 +157,7 @@ export default function Hero() {
                     </span>
                   </div>
                 </div>
-                <div className="rounded-2xl border border-ink/5 bg-white p-4">
+                <div className="rounded-2xl border border-ink/5 bg-white p-3 sm:p-4">
                   <p className="text-xs font-medium text-muted">Assets tracked</p>
                   <p className="mt-1 font-display text-xl font-bold text-ink sm:text-2xl">5</p>
                   <p className="mt-0.5 text-[11px] text-muted">Across your watchlist</p>
@@ -175,7 +175,7 @@ export default function Hero() {
               </div>
 
               {/* Chart card */}
-              <div className="mt-3 rounded-2xl border border-ink/5 bg-white p-4">
+              <div className="mt-2 rounded-2xl border border-ink/5 bg-white p-3 sm:mt-3 sm:p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-semibold text-ink">Market activity</p>
@@ -194,7 +194,7 @@ export default function Hero() {
               </div>
 
               {/* Watchlist */}
-              <div className="mt-3 rounded-2xl border border-ink/5 bg-white p-4">
+              <div className="mt-2 rounded-2xl border border-ink/5 bg-white p-3 sm:mt-3 sm:p-4">
                 <p className="text-sm font-semibold text-ink">Watchlist</p>
                 <ul className="mt-2 space-y-2">
                   {WATCHLIST.map((row) => (
