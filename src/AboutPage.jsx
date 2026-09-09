@@ -308,8 +308,8 @@ export default function AboutPage() {
             <div className="cnt">
               <h2 id="cta-title">Start with the basics, at your own pace.</h2>
               <p>
-                Join thousands of Australians researching smarter with Fels Wertburg AI. No credit card needed —
-                just a clearer way to look at the market.
+                Fels Wertburg AI gives Australians a clearer way to research the market — AI-assisted
+                scanning, charts and plain-English education, with no credit card needed.
               </p>
               <div className="btns">
                 <a className="ab-btn-solid" href="/#register">

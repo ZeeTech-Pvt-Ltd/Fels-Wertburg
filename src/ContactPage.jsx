@@ -11,35 +11,10 @@ import { CONTACT_DETAILS } from './components/Footer.jsx';
  * Rendered inside the shared Header/Footer (see src/contact-us.jsx).
  */
 export default function ContactPage() {
-  // Organisation structured data so search engines can surface the site's
-  // official support contact.
-  const orgJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Fels Wertburg AI',
-    url: 'https://www.fels-wertburgai.com/',
-    email: 'support@fels-wertburgai.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Sydney',
-      addressRegion: 'NSW',
-      addressCountry: 'AU',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer support',
-      email: 'support@fels-wertburgai.com',
-      areaServed: 'AU',
-      availableLanguage: 'en',
-    },
-  };
-
+  // Organisation structured data is provided statically in the page <head>
+  // (see contact/index.html) so it ships in the raw HTML.
   return (
     <div className="section">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd).replace(/</g, '\\u003c') }}
-      />
       <div className="shell">
         {/* Page header */}
         <header className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-deep to-primary px-6 py-10 text-white shadow-card sm:px-10 sm:py-12">
