@@ -11,7 +11,7 @@ const STEPS = [
   {
     number: '02',
     title: 'Explore Market Tools',
-    text: 'Access market insights, charts, watchlists and educational resources from one organised workspace.',
+    text: 'Access market insights, charts and watchlists from one organised workspace.',
   },
   {
     number: '03',

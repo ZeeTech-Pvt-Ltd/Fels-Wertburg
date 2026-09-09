@@ -17,8 +17,8 @@ export default function FinalCTA() {
               Start Exploring Smarter Market Tools
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-              Discover a simpler way to access market insights, analytics and educational resources —
-              all in one considered workspace.
+              Discover a simpler way to access market insights and analytics — all in one
+              considered workspace.
             </p>
 
             <div className="mt-9">

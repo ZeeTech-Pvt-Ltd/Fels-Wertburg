@@ -3,11 +3,7 @@ import RegistrationForm from './RegistrationForm.jsx';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
-const POINTS = [
-  'Free to explore the platform',
-  'Only basic contact details needed — no passwords or card details at sign-up',
-  'Educational resources included as you get started',
-];
+const POINTS = ['Free to explore the platform'];
 
 export default function Register() {
   return (
@@ -26,7 +22,7 @@ export default function Register() {
           </h2>
           <p className="mt-5 max-w-lg text-lg leading-relaxed text-steel">
             Registration is simple and secure. Tell us who you are and we&rsquo;ll help you set up a
-            workspace where you can explore market insights, analytics and learning resources.
+            workspace where you can explore market insights and analytics.
           </p>
 
           <ul className="mt-7 space-y-3.5">

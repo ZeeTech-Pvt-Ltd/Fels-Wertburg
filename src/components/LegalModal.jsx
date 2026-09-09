@@ -67,7 +67,7 @@ export const LEGAL_DOCS = {
       },
       {
         heading: 'What the platform provides',
-        body: 'Fels Wertburg AI provides market information, analytics tools, data visualisation and educational resources. Content is provided for general information and education only and should not be treated as a recommendation, offer or solicitation to buy or sell any financial product.',
+        body: 'Fels Wertburg AI provides market information, analytics tools and data visualisation. Content is provided for general information and education only and should not be treated as a recommendation, offer or solicitation to buy or sell any financial product.',
       },
       {
         heading: 'Your responsibilities',
