@@ -1,4 +1,4 @@
-import { ArrowUpRight, ListFilter, PieChart as PieIcon, Wallet } from 'lucide-react';
+import { ArrowUpRight, PieChart as PieIcon, Wallet } from 'lucide-react';
 import MiniChart from './MiniChart.jsx';
 import Eyebrow from './Eyebrow.jsx';
 
@@ -41,7 +41,7 @@ export default function DashboardPreview() {
         <div
           className="relative mt-12 overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-primary via-primary-deep to-secondary p-5 shadow-soft sm:rounded-[2.5rem] sm:p-7 lg:p-9"
           role="img"
-          aria-label="Illustrative preview of the Fels Wertburg AI console showing market scanning, watchlist, charting and activity panels"
+          aria-label="Preview of the Fels Wertburg AI console showing market scanning, watchlist, charting and activity panels"
         >
           {/* Decorative highlights */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -60,10 +60,6 @@ export default function DashboardPreview() {
               <p className="ml-1 text-sm font-semibold text-white/90">Your research workspace</p>
             </div>
             <div className="flex items-center gap-2.5">
-              <span className="hidden items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 text-[11px] font-medium text-white/70 sm:inline-flex">
-                <ListFilter className="h-3 w-3" aria-hidden="true" />
-                Illustrative sample
-              </span>
               <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-accent to-secondary text-[11px] font-bold text-white">
                 AU
               </span>
@@ -71,15 +67,15 @@ export default function DashboardPreview() {
           </div>
 
           {/* Panels */}
-          <div className="relative mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-hidden="true">
+          <div className="relative mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-12" aria-hidden="true">
             {/* Market coverage */}
-            <div className="rounded-2xl bg-white/95 p-5 shadow-card">
+            <div className="rounded-2xl bg-white/95 p-5 shadow-card xl:col-span-3">
               <div className="flex items-center gap-2 text-muted">
                 <Wallet className="h-4 w-4 text-secondary" aria-hidden="true" />
                 <p className="text-xs font-semibold uppercase tracking-wider">Market coverage</p>
               </div>
               <p className="mt-3 font-display text-2xl font-extrabold text-ink">120+</p>
-              <p className="text-[11px] text-muted">Assets monitored · illustrative</p>
+              <p className="text-[11px] text-muted">Assets monitored</p>
               <ul className="mt-4 space-y-1.5">
                 {[
                   { label: 'Bitcoin', value: '42%' },
@@ -95,7 +91,7 @@ export default function DashboardPreview() {
             </div>
 
             {/* Performance chart */}
-            <div className="rounded-2xl bg-white/95 p-5 shadow-card sm:col-span-2">
+            <div className="rounded-2xl bg-white/95 p-5 shadow-card sm:col-span-2 xl:col-span-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-muted">
                   <PieIcon className="h-4 w-4 text-secondary" aria-hidden="true" />
@@ -109,7 +105,7 @@ export default function DashboardPreview() {
               <div className="mt-4 flex flex-wrap items-end justify-between gap-3">
                 <div>
                   <p className="font-display text-xl font-extrabold text-ink">+6.2%</p>
-                  <p className="text-[11px] text-muted">Illustrative comparison period</p>
+                  <p className="text-[11px] text-muted">Comparison period</p>
                 </div>
                 <div className="flex gap-4 text-xs text-steel">
                   <span className="flex items-center gap-1.5">
@@ -137,7 +133,7 @@ export default function DashboardPreview() {
             </div>
 
             {/* Watchlist */}
-            <div className="rounded-2xl bg-white/95 p-5 shadow-card">
+            <div className="rounded-2xl bg-white/95 p-5 shadow-card xl:col-span-3">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted">Watchlist</p>
               <ul className="mt-3 space-y-2.5">
                 {WATCHLIST.map((row) => (
@@ -156,7 +152,7 @@ export default function DashboardPreview() {
             </div>
 
             {/* Market summary */}
-            <div className="rounded-2xl bg-white/95 p-5 shadow-card">
+            <div className="rounded-2xl bg-white/95 p-5 shadow-card xl:col-span-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted">Market summary</p>
               <ul className="mt-3 space-y-2.5">
                 {SUMMARY.map((row) => (
@@ -175,7 +171,7 @@ export default function DashboardPreview() {
             </div>
 
             {/* Recent activity */}
-            <div className="rounded-2xl bg-white/95 p-5 shadow-card">
+            <div className="rounded-2xl bg-white/95 p-5 shadow-card sm:col-span-2 xl:col-span-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted">Recent activity</p>
               <ul className="mt-3 space-y-2.5">
                 {ACTIVITY.map((row) => (
@@ -188,9 +184,6 @@ export default function DashboardPreview() {
             </div>
           </div>
 
-          <p className="relative mt-5 text-center text-[11px] text-white/50">
-            Dashboard shown is an illustrative mock-up for preview purposes, not real data or advice.
-          </p>
         </div>
       </div>
     </section>

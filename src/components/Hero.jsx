@@ -42,26 +42,7 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-6 text-[clamp(2.125rem,5.5vw,3.5rem)] font-extrabold leading-[1.08] tracking-tight text-primary">
-            Make More Informed{' '}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-                Market Decisions
-              </span>
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 240 14"
-                preserveAspectRatio="none"
-                className="absolute -bottom-2.5 left-0 h-3 w-full text-accent/70"
-                fill="none"
-              >
-                <path
-                  d="M6 10 C 40 2, 70 12, 105 8 S 175 4, 234 7"
-                  stroke="currentColor"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
+            Make More Informed Market Decisions
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-steel">
@@ -114,9 +95,6 @@ export default function Hero() {
                   </span>
                   <span className="ml-2 text-sm font-semibold text-primary">Market dashboard</span>
                 </div>
-                <span className="whitespace-nowrap rounded-full bg-canvas px-2.5 py-1 text-[10px] font-medium text-muted sm:text-[11px]">
-                  Illustrative example
-                </span>
               </div>
 
               {/* Stat tiles */}
@@ -126,7 +104,7 @@ export default function Hero() {
                     <div>
                       <p className="text-xs font-medium text-muted">Market coverage</p>
                       <p className="mt-1 font-display text-xl font-bold text-ink sm:text-2xl">120+</p>
-                      <p className="mt-0.5 text-[11px] text-muted">Assets scanned · illustrative</p>
+                      <p className="mt-0.5 text-[11px] text-muted">Assets scanned</p>
                     </div>
                     {/* Allocation donut - decorative */}
                     <span
@@ -179,7 +157,7 @@ export default function Hero() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-semibold text-ink">Market activity</p>
-                    <p className="text-[11px] text-muted">7-day illustrative view</p>
+                    <p className="text-[11px] text-muted">7-day view</p>
                   </div>
                   <span className="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2.5 py-1 text-xs font-semibold text-accent-dark">
                     <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
@@ -220,18 +198,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating accent chips */}
-            <div className="absolute -left-4 top-24 hidden animate-float rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-card backdrop-blur md:block">
-              <div className="flex items-center gap-2.5">
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent/15 text-accent-dark">
-                  <TrendingUp className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xs font-bold text-ink">Crypto signals</p>
-                  <p className="text-[11px] text-muted">AI market round-up</p>
-                </div>
-              </div>
-            </div>
+            {/* Floating accent chip */}
             <div className="absolute -bottom-5 -right-3 hidden animate-float rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-card backdrop-blur md:block [animation-delay:1.6s]">
               <div className="flex items-center gap-2.5">
                 <span className="grid h-9 w-9 place-items-center rounded-xl bg-secondary/10 text-secondary">

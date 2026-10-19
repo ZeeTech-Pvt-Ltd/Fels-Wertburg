@@ -12,6 +12,9 @@ import react from '@vitejs/plugin-react';
  */
 const CLEAN_ROUTES = {
   '/about-us': '/about-us/index.html',
+  '/how-it-works': '/how-it-works/index.html',
+  '/features': '/features/index.html',
+  '/reviews': '/reviews/index.html',
   '/faq': '/faq/index.html',
   '/contact': '/contact/index.html',
   '/privacy-policy': '/privacy-policy/index.html',
@@ -25,6 +28,9 @@ const CLEAN_ROUTES = {
 
 const LEGACY_REDIRECTS = {
   '/about-us.html': '/about-us',
+  '/how-it-works.html': '/how-it-works',
+  '/features.html': '/features',
+  '/reviews.html': '/reviews',
   '/faq.html': '/faq',
   '/contact-us.html': '/contact',
   '/privacy-policy.html': '/privacy-policy',
@@ -86,6 +92,9 @@ export default defineConfig({
       input: {
         main: 'index.html',
         about: 'about-us/index.html',
+        howItWorks: 'how-it-works/index.html',
+        features: 'features/index.html',
+        reviews: 'reviews/index.html',
         faq: 'faq/index.html',
         contact: 'contact/index.html',
         privacy: 'privacy-policy/index.html',

@@ -52,7 +52,7 @@ export default function Platform() {
             <div className="relative overflow-hidden rounded-3xl border border-ink/5 bg-white p-2 shadow-soft">
               <img
                 src="/the-platform.webp"
-                alt="Fels Wertburg AI research platform, illustrative interface preview"
+                alt="Fels Wertburg AI research platform interface preview"
                 width={1287}
                 height={1222}
                 loading="lazy"

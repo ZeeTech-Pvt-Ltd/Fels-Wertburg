@@ -4,6 +4,9 @@ import { LEGAL_LINKS } from './LegalModal.jsx';
 
 const EXPLORE_LINKS = [
   { label: 'Home', href: '/' },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Features', href: '/features' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'About Us', href: '/about-us' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },

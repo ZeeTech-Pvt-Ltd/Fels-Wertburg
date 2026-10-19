@@ -9,36 +9,67 @@ import {
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
-const FEATURES = [
+// Shared by the homepage section and the dedicated Features page.
+export const FEATURES = [
   {
     icon: Sparkles,
     title: 'Intelligent Market Insights',
     text: 'Understand market movements with structured data and clear visualisation, organised so the signal is easy to find.',
+    points: [
+      'See price movement, volume and market direction in one view.',
+      'Spot unusual activity without scanning every chart yourself.',
+      'Read short summaries written in plain English.',
+    ],
   },
   {
     icon: LayoutDashboard,
     title: 'Simple Interface',
     text: 'Access important information without unnecessary complexity. Everything you research most lives a click away.',
+    points: [
+      'All the main tools sit in one calm workspace.',
+      'Search and filter without digging through menus.',
+      'The same layout on desktop, tablet and mobile.',
+    ],
   },
   {
     icon: Activity,
-    title: 'Real-Time Awareness',
+    title: 'Current Market Awareness',
     text: 'Stay informed with regularly updated market information, so your research reflects the latest available data.',
+    points: [
+      'Market information refreshes through the trading day.',
+      'Alerts bring you back to the assets you follow.',
+      'Summaries explain what changed and why it might matter.',
+    ],
   },
   {
     icon: Smartphone,
-    title: 'Multi-Device Access',
+    title: 'Access On Any Device',
     text: 'Use the platform across desktop, tablet and mobile, and pick up your research wherever you left off.',
+    points: [
+      'Start on your laptop and continue on your phone.',
+      'Charts resize to fit the screen you are using.',
+      'No extra app install needed to get started.',
+    ],
   },
   {
     icon: BookOpen,
     title: 'Learning Resources',
     text: 'Build your market knowledge through accessible educational content designed for every experience level.',
+    points: [
+      'Guides that start with the basics and build from there.',
+      'Plain language explanations of common market terms.',
+      'Topics you can read in any order you choose.',
+    ],
   },
   {
     icon: ShieldCheck,
     title: 'Secure Experience',
     text: 'We follow modern security and privacy practices, and keep your personal information protected.',
+    points: [
+      'Sign up asks for basic contact details only.',
+      'No wallet keys and no card details at registration.',
+      'Clear privacy information written for real people.',
+    ],
   },
 ];
 

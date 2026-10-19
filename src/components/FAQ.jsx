@@ -84,7 +84,8 @@ function FaqItem({ item, open, onToggle, index, heading: Heading = 'h3' }) {
  * never drift apart: same questions, same ids, same interaction.
  */
 export function FaqAccordion({ headingLevel = 'h3' }) {
-  const [openIndex, setOpenIndex] = useState(0);
+  // Every item starts closed; a panel opens only when the visitor clicks it.
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <div className="space-y-3.5">

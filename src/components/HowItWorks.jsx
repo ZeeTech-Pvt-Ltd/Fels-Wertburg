@@ -1,22 +1,42 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Compass, Lightbulb, UserPlus } from 'lucide-react';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
-const STEPS = [
+// Shared by the homepage section and the dedicated How It Works page, so the
+// steps, wording and order can never drift between the two.
+export const STEPS = [
   {
     number: '01',
+    icon: UserPlus,
     title: 'Create Your Account',
     text: 'Complete the simple registration process with just a few basic details. It takes minutes.',
+    points: [
+      'Fill in your name, email and phone number.',
+      'Choose your country from the picker beside the phone field.',
+      'Review the Privacy Policy and Terms before you agree.',
+    ],
   },
   {
     number: '02',
+    icon: Compass,
     title: 'Explore Market Tools',
     text: 'Access market insights, charts, watchlists and educational resources from one organised workspace.',
+    points: [
+      'Open the market scanner to see what moved and where.',
+      'Build a watchlist for the assets you follow closely.',
+      'Read the guides in your own time and at your own pace.',
+    ],
   },
   {
     number: '03',
+    icon: Lightbulb,
     title: 'Make Informed Decisions',
     text: 'Use the available information to support your own research and decisions, at your own pace.',
+    points: [
+      'Compare the data with your own research and goals.',
+      'Set alerts for the moves that matter to you.',
+      'Keep a record of what you learn and why it mattered.',
+    ],
   },
 ];
 
@@ -32,7 +52,7 @@ export default function HowItWorks() {
             Up and running in three simple steps
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
-            No steep learning curve, just a clear path from sign-up to smarter research.
+            No steep learning curve, just a clear path from sign up to smarter research.
           </p>
         </div>
 
