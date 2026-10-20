@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Check } from 'lucide-react';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
@@ -50,12 +51,12 @@ export default function Platform() {
               className="absolute -inset-2 rounded-[2rem] bg-gradient-to-br from-primary/5 to-accent/10 blur-lg"
             />
             <div className="relative overflow-hidden rounded-3xl border border-ink/5 bg-white p-2 shadow-soft">
-              <img
+              <Image
                 src="/the-platform.webp"
                 alt="Fels Wertburg AI research platform interface preview"
                 width={1287}
                 height={1222}
-                loading="lazy"
+                sizes="(max-width: 1023px) 100vw, 620px"
                 className="h-auto w-full rounded-2xl"
               />
             </div>

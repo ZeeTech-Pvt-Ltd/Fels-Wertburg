@@ -19,7 +19,8 @@ npm start       # serve the production build
 - React 19
 - Tailwind CSS 3 with custom brand tokens in `tailwind.config.js`
 - Lucide React icons
-- Google Fonts: Inter (body) and Manrope (headings), loaded from `app/globals.css`
+- Self-hosted variable fonts: Inter (body) and Manrope (headings), loaded with
+  `next/font/local` from `app/fonts`
 
 ## Routes
 
@@ -47,6 +48,7 @@ redirected to their clean equivalents in `next.config.mjs`.
 ```
 app/
 ├── layout.jsx                 # <html>, fonts, metadata, legal provider, site JSON-LD
+├── fonts/                     # Self-hosted Inter and Manrope variable woff2 files
 ├── globals.css                # Tailwind layers + design tokens
 ├── not-found.jsx              # Branded 404 with site chrome
 ├── thank-you/page.jsx         # Standalone confirmation page

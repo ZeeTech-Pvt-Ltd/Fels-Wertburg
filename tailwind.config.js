@@ -15,16 +15,16 @@ export default {
         },
         accent: {
           DEFAULT: '#29B6A8',
-          dark: '#15877D',
+          dark: '#12766D',
         },
         canvas: '#F5F8FA',
         ink: '#102A43',
         steel: '#486581',
-        muted: '#627D98',
+        muted: '#556E86',
       },
       fontFamily: {
         sans: [
-          'Inter',
+          'var(--font-inter)',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
@@ -35,8 +35,8 @@ export default {
           'sans-serif',
         ],
         display: [
-          'Manrope',
-          'Inter',
+          'var(--font-manrope)',
+          'var(--font-inter)',
           'ui-sans-serif',
           'system-ui',
           'Segoe UI',

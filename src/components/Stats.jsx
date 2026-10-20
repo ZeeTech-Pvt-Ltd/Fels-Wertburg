@@ -52,7 +52,7 @@ export default function Stats() {
           ))}
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-5 text-xs leading-relaxed text-white/50">
+        <p className="mt-12 border-t border-white/10 pt-5 text-xs leading-relaxed text-white/70">
           Figures describe the platform itself rather than trading outcomes. Market results vary and
           are never guaranteed.
         </p>

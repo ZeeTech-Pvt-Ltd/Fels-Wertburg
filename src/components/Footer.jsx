@@ -38,7 +38,7 @@ export default function Footer() {
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-xs uppercase tracking-wider text-white/50">{label}</span>
+                  <span className="block text-xs uppercase tracking-wider text-white/70">{label}</span>
                   <span className="mt-0.5 block truncate text-sm font-medium text-white/90">{value}</span>
                 </span>
               </>
@@ -114,14 +114,14 @@ export default function Footer() {
 
         {/* Disclaimer + bottom bar */}
         <div className="mt-5 border-t border-white/10 pb-10 pt-10">
-          <p className="text-xs leading-relaxed text-white/50">
+          <p className="text-xs leading-relaxed text-white/70">
             <strong className="font-semibold text-white/70">Risk warning:</strong> Financial markets
             involve risk. Information provided on this website is general in nature and does not
             constitute personal financial advice. Consider your circumstances and seek professional
             advice where appropriate. Fels Wertburg AI does not provide personal financial product advice
             under the Corporations Act 2001 (Cth). All examples shown are illustrative only.
           </p>
-          <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
+          <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-white/70 sm:flex-row sm:items-center">
             <p>© 2026 Fels Wertburg AI. All rights reserved.</p>
           </div>
         </div>

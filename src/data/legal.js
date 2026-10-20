@@ -38,7 +38,7 @@ export const LEGAL_DOCS = {
       },
       {
         heading: 'Third-party services',
-        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, web fonts that improve how pages look, and our registration provider that securely processes the sign-up form). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
+        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, our registration provider that securely processes the sign-up form). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
       },
       {
         heading: 'Your choices',

@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    // Inline the page CSS so the first paint is not blocked by a stylesheet request.
+    inlineCss: true,
+  },
 
   // Preserve the permanent redirects the old site issued for legacy .html
   // bookmarks, so old links keep resolving to the clean URLs.

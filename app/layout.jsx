@@ -1,5 +1,23 @@
+import localFont from 'next/font/local';
 import { LegalProvider } from '../src/components/LegalModal.jsx';
 import './globals.css';
+
+// Self-hosted variable fonts: no third-party font request on the critical path.
+const inter = localFont({
+  src: './fonts/inter-latin-var.woff2',
+  variable: '--font-inter',
+  display: 'swap',
+  weight: '100 900',
+  preload: true,
+});
+
+const manrope = localFont({
+  src: './fonts/manrope-latin-var.woff2',
+  variable: '--font-manrope',
+  display: 'swap',
+  weight: '200 800',
+  preload: true,
+});
 
 export const metadata = {
   metadataBase: new URL('https://fels-wertburgai.com'),
@@ -47,7 +65,7 @@ const organisationJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-AU">
+    <html lang="en-AU" className={`${inter.variable} ${manrope.variable}`}>
       <body>
         <script
           type="application/ld+json"

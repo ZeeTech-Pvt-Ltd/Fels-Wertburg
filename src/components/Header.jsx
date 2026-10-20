@@ -30,7 +30,12 @@ export default function Header() {
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    // Only update state when the threshold is actually crossed; this runs on
+    // every scroll event, so avoid a state update for each pixel.
+    const onScroll = () => {
+      const next = window.scrollY > 8;
+      setScrolled((current) => (current === next ? current : next));
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
