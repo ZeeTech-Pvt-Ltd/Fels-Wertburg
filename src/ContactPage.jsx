@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FileQuestion, LifeBuoy, Mail } from 'lucide-react';
 import RegistrationForm from './components/RegistrationForm.jsx';
 import { CONTACT_DETAILS } from './components/Footer.jsx';
@@ -8,7 +9,7 @@ import { CONTACT_DETAILS } from './components/Footer.jsx';
  * The lead-capture form on the right is the exact same <RegistrationForm />
  * the homepage renders (see src/components/Register.jsx), so the two can never
  * drift apart. Contact details are shared with the footer via CONTACT_DETAILS.
- * Rendered inside the shared Header/Footer (see src/contact-us.jsx).
+ * Rendered inside the shared Header/Footer (see app/(site)/layout.jsx).
  */
 export default function ContactPage() {
   // Organisation structured data is provided statically in the page <head>
@@ -81,15 +82,15 @@ export default function ContactPage() {
               <p className="text-sm leading-relaxed text-steel">
                 We reply to messages during Australian business hours (Mon&ndash;Fri, 9am&ndash;5pm
                 AEST). If you&rsquo;re after a quick answer, our{' '}
-                <a href="/faq" className="font-medium text-secondary underline decoration-secondary/40 underline-offset-2 hover:decoration-secondary">
+                <Link href="/faq" className="font-medium text-secondary underline decoration-secondary/40 underline-offset-2 hover:decoration-secondary">
                   FAQ page
-                </a>{' '}
+                </Link>{' '}
                 covers the most common questions.
               </p>
             </div>
 
             <div className="mt-4 space-y-3">
-              <a
+              <Link
                 href="/faq"
                 className="flex items-center gap-4 rounded-2xl border border-ink/5 bg-white px-5 py-4 shadow-soft transition hover:border-secondary/25"
               >
@@ -100,9 +101,9 @@ export default function ContactPage() {
                   <span className="block text-sm font-bold text-primary">Browse the FAQ</span>
                   <span className="block text-sm text-steel">Answers to common questions</span>
                 </span>
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="/risk-disclosure"
                 className="flex items-center gap-4 rounded-2xl border border-ink/5 bg-white px-5 py-4 shadow-soft transition hover:border-secondary/25"
               >
@@ -113,7 +114,7 @@ export default function ContactPage() {
                   <span className="block text-sm font-bold text-primary">Risk disclosure</span>
                   <span className="block text-sm text-steel">Our general information notice</span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 

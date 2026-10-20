@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { Clock, Mail, MapPin } from 'lucide-react';
 import Logo from './Logo.jsx';
-import { LEGAL_LINKS } from './LegalModal.jsx';
+import { LEGAL_LINKS } from '../data/legal.js';
 
 const EXPLORE_LINKS = [
   { label: 'Home', href: '/' },
@@ -74,9 +75,9 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {EXPLORE_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-white/75 transition hover:text-accent">
+                  <Link href={link.href} className="text-sm text-white/75 transition hover:text-accent">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -88,9 +89,9 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {LEGAL_LINKS.map((doc) => (
                 <li key={doc.href}>
-                  <a href={doc.href} className="text-sm text-white/75 transition hover:text-accent">
+                  <Link href={doc.href} className="text-sm text-white/75 transition hover:text-accent">
                     {doc.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

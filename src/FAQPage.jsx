@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { ArrowRight, HelpCircle, MessageCircle, Sparkles } from 'lucide-react';
-import { FAQS, FaqAccordion } from './components/FAQ.jsx';
+import { FaqAccordion } from './components/FAQ.jsx';
+import { FAQS } from './data/faqs.js';
 
 /**
  * The dedicated FAQ page. The accordion is the exact same component the
@@ -69,9 +71,9 @@ export default function FAQPage() {
                   Email support
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
-                <a href="/contact" className="btn-ghost w-full">
+                <Link href="/contact" className="btn-ghost w-full">
                   Go to the contact page
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -84,10 +86,10 @@ export default function FAQPage() {
                 Create your free account on the homepage: all we need are basic contact details,
                 and you can explore the platform right away.
               </p>
-              <a href="/#register" className="btn-primary mt-5 w-full">
+              <Link href="/#register" className="btn-primary mt-5 w-full">
                 Get Started
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </aside>
         </div>

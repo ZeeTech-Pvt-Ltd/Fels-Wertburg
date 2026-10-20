@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowRight, Check, MessageCircle, ShieldCheck, Star, X } from 'lucide-react';
 import { TESTIMONIALS, TestimonialCard } from './components/Testimonials.jsx';
 import Eyebrow from './components/Eyebrow.jsx';
@@ -199,13 +200,13 @@ export default function ReviewsPage() {
                 details only.
               </p>
               <div className="mt-9">
-                <a
+                <Link
                   href="/#register"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-bold text-primary-deep shadow-glow transition hover:-translate-y-0.5 hover:bg-white"
                 >
                   Get Started
                   <ArrowRight className="h-5 w-5" aria-hidden="true" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

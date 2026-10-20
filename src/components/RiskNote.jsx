@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ShieldAlert } from 'lucide-react';
 
 /**
@@ -20,12 +21,12 @@ export default function RiskNote() {
               Crypto markets are volatile and you can lose money. Everything on this site is general
               information, not personal financial advice. Consider your circumstances and seek
               professional advice where appropriate. Read the full{' '}
-              <a
+              <Link
                 href="/risk-disclosure"
                 className="font-semibold text-secondary underline decoration-secondary/40 underline-offset-2 hover:decoration-secondary"
               >
                 Risk Disclosure
-              </a>
+              </Link>
               .
             </p>
           </div>

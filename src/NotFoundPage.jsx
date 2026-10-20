@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowRight, Compass, Home } from 'lucide-react';
 
 /**
@@ -38,14 +39,14 @@ export default function NotFoundPage() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="/" className="btn-primary">
+            <Link href="/" className="btn-primary">
               <Home className="h-4 w-4" aria-hidden="true" />
               Back to homepage
-            </a>
-            <a href="/faq" className="btn-ghost">
+            </Link>
+            <Link href="/faq" className="btn-ghost">
               Browse the FAQ
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -57,7 +58,7 @@ export default function NotFoundPage() {
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {POPULAR.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="group flex h-full flex-col justify-between gap-3 rounded-2xl border border-ink/5 bg-white p-5 text-left shadow-soft transition hover:-translate-y-0.5 hover:border-secondary/25 hover:shadow-card"
                 >
@@ -71,7 +72,7 @@ export default function NotFoundPage() {
                       aria-hidden="true"
                     />
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

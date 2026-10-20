@@ -1,5 +1,6 @@
+import Link from 'next/link';
 import { ArrowLeft, ArrowRight, FileText } from 'lucide-react';
-import { LEGAL_DOCS, LEGAL_LINKS } from './components/LegalModal.jsx';
+import { LEGAL_DOCS, LEGAL_LINKS } from './data/legal.js';
 
 /**
  * Renders one legal document (Privacy / Cookie / Terms / Risk / Disclaimer)
@@ -51,29 +52,29 @@ export default function LegalPage({ docKey }) {
 
         {/* Prev / next + home */}
         <nav aria-label="Legal documents" className="mt-8 grid gap-3 sm:grid-cols-2">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-white px-6 py-3 text-sm font-semibold text-primary transition hover:border-primary/50 hover:bg-white"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to homepage
-          </a>
+          </Link>
           {next ? (
-            <a
+            <Link
               href={next.href}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 text-sm font-semibold text-white shadow-card transition hover:-translate-y-0.5 hover:shadow-lift"
             >
               {next.label}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           ) : prev ? (
-            <a
+            <Link
               href={prev.href}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-6 py-3 text-sm font-semibold text-white shadow-card transition hover:-translate-y-0.5 hover:shadow-lift"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               {prev.label}
-            </a>
+            </Link>
           ) : null}
         </nav>
       </div>

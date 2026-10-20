@@ -1,8 +1,13 @@
+'use client';
+
+'use client';
+
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 /**
  * About Fels Wertburg AI - an original, honest brand story page.
- * Rendered inside the shared site Header/Footer (see src/about-us.jsx).
+ * Rendered inside the shared site Header/Footer (see app/(site)/layout.jsx).
  * All copy is original; no fabricated stats, team members or testimonials.
  */
 export default function AboutPage() {
@@ -71,15 +76,15 @@ export default function AboutPage() {
               </span>
             </div>
             <div className="ab-hero-actions">
-              <a className="ab-btn-solid" href="/#register">
+              <Link className="ab-btn-solid" href="/#register">
                 Create your account
                 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </a>
-              <a className="ab-btn-line" href="/#platform">
+              </Link>
+              <Link className="ab-btn-line" href="/#platform">
                 Explore the platform
-              </a>
+              </Link>
             </div>
           </div>
           <div className="ab-hero-imgs rv">
@@ -312,15 +317,15 @@ export default function AboutPage() {
                 scanning, charts and plain-English education, with no credit card needed.
               </p>
               <div className="btns">
-                <a className="ab-btn-solid" href="/#register">
+                <Link className="ab-btn-solid" href="/#register">
                   Create your account
                   <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true">
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </a>
-                <a className="btn-ghostw" href="/#platform">
+                </Link>
+                <Link className="btn-ghostw" href="/#platform">
                   Explore the platform
-                </a>
+                </Link>
               </div>
             </div>
           </div>

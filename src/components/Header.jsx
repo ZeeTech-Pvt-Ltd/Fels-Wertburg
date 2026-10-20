@@ -1,4 +1,8 @@
+'use client';
+
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import Logo from './Logo.jsx';
 
@@ -18,9 +22,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Current path for highlighting the active nav link. This is a multi-page
-  // site (no SPA router), so the value is stable for the life of each page.
-  const [pathname] = useState(() => (typeof window === 'undefined' ? '' : window.location.pathname));
+  // Current path for highlighting the active nav link.
+  const pathname = usePathname();
   const isActive = (href) => {
     const linkPath = href.split('#')[0];
     return linkPath === pathname || (pathname === '/' && href.startsWith('/#'));
@@ -72,7 +75,7 @@ export default function Header() {
               const active = isActive(link.href);
               return (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     aria-current={active ? 'page' : undefined}
                     className={`group relative text-sm font-medium transition hover:text-primary ${
@@ -86,7 +89,7 @@ export default function Header() {
                         active ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     />
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -94,10 +97,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="/#register" className="btn-primary hidden !px-5 lg:inline-flex">
+          <Link href="/#register" className="btn-primary hidden !px-5 lg:inline-flex">
             Get Started
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+          </Link>
 
           {/* Mobile menu toggle */}
           <button
@@ -121,7 +124,7 @@ export default function Header() {
               const active = isActive(link.href);
               return (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     onClick={closeMenu}
                     aria-current={active ? 'page' : undefined}
@@ -131,15 +134,15 @@ export default function Header() {
                   >
                     {link.label}
                     <ArrowRight className="h-4 w-4 text-muted/70" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </li>
               );
             })}
           </ul>
-          <a href="/#register" onClick={closeMenu} className="btn-primary mt-5 w-full">
+          <Link href="/#register" onClick={closeMenu} className="btn-primary mt-5 w-full">
             Get Started
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
