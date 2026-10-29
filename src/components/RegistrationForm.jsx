@@ -212,7 +212,7 @@ const FIELDS = {
   phone: { validate: validatePhone },
 };
 
-const initialValues = { firstName: '', lastName: '', email: '', phone: '', agree: false };
+const initialValues = { firstName: '', lastName: '', email: '', phone: '', agree: true };
 
 /* ------------------------------------------------------------------ */
 /* Component                                                           */

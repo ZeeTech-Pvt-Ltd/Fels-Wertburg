@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section aria-label="Get started" className="relative overflow-hidden bg-canvas pb-16 sm:pb-24">
+    <section aria-label="Get started" className="relative overflow-hidden bg-canvas py-16 sm:py-24">
       <div className="shell">
         <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary via-primary-deep to-secondary px-6 py-16 text-center shadow-soft sm:px-12 sm:py-20">
           {/* Decorative shapes */}

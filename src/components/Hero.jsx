@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, TrendingDown, TrendingUp } from 'lucide-react';
+import { ArrowRight, TrendingDown, TrendingUp } from 'lucide-react';
 import MiniChart from './MiniChart.jsx';
 import { LogoMark } from './Logo.jsx';
 
@@ -195,19 +195,6 @@ export default function Hero() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
-
-            {/* Floating accent chip */}
-            <div className="absolute -bottom-5 -right-3 hidden animate-float rounded-2xl border border-white/60 bg-white/90 px-4 py-3 shadow-card backdrop-blur md:block [animation-delay:1.6s]">
-              <div className="flex items-center gap-2.5">
-                <span className="grid h-9 w-9 place-items-center rounded-xl bg-secondary/10 text-secondary">
-                  <BookOpen className="h-4 w-4" />
-                </span>
-                <div>
-                  <p className="text-xs font-bold text-ink">Learning hub</p>
-                  <p className="text-[11px] text-muted">Beginner-friendly guides</p>
-                </div>
               </div>
             </div>
           </div>

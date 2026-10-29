@@ -1,4 +1,4 @@
-import { Quote } from 'lucide-react';
+import { Quote, Star, StarHalf, User } from 'lucide-react';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
@@ -8,16 +8,43 @@ export const TESTIMONIALS = [
   {
     quote: 'Simple to navigate and easy to understand.',
     theme: 'Navigation',
+    rating: 4.5,
   },
   {
     quote: 'Having market information organised in one place makes research much easier.',
     theme: 'Organisation',
+    rating: 5,
   },
   {
     quote: 'The interface feels clean and straightforward.',
     theme: 'Interface',
+    rating: 4,
   },
 ];
+
+function StarRating({ value, featured }) {
+  const full = Math.floor(value);
+  const hasHalf = value % 1 >= 0.5;
+  const empty = 5 - full - (hasHalf ? 1 : 0);
+  const starClass = 'h-3.5 w-3.5 fill-amber-400 text-amber-400';
+  const emptyClass = `h-3.5 w-3.5 ${featured ? 'text-white/30' : 'text-ink/20'}`;
+
+  return (
+    <span className="inline-flex items-center gap-0.5">
+      {Array.from({ length: full }).map((_, index) => (
+        <Star key={`full-${index}`} className={starClass} aria-hidden="true" />
+      ))}
+      {hasHalf ? <StarHalf className={starClass} aria-hidden="true" /> : null}
+      {Array.from({ length: empty }).map((_, index) => (
+        <Star key={`empty-${index}`} className={emptyClass} aria-hidden="true" />
+      ))}
+      <span className={`ml-1.5 text-xs font-bold ${featured ? 'text-white' : 'text-ink'}`}>
+        {value}
+      </span>
+      <span className="sr-only"> out of 5 stars</span>
+    </span>
+  );
+}
 
 export function TestimonialCard({ item, featured = false }) {
   return (
@@ -53,13 +80,26 @@ export function TestimonialCard({ item, featured = false }) {
           featured ? 'border-white/20' : 'border-ink/5'
         }`}
       >
-        <p
-          className={`text-xs font-bold uppercase tracking-wider ${
-            featured ? 'text-accent' : 'text-secondary'
-          }`}
-        >
-          {item.theme}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <span
+              aria-hidden="true"
+              className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${
+                featured ? 'bg-white/15 text-white' : 'bg-primary/5 text-secondary'
+              }`}
+            >
+              <User className="h-5 w-5" />
+            </span>
+            <p
+              className={`truncate text-xs font-bold uppercase tracking-wider ${
+                featured ? 'text-accent' : 'text-secondary'
+              }`}
+            >
+              {item.theme}
+            </p>
+          </div>
+          <StarRating value={item.rating} featured={featured} />
+        </div>
       </figcaption>
     </figure>
   );

@@ -50,15 +50,6 @@ export default {
         lift: '0 18px 40px -22px rgba(18, 59, 93, 0.35)',
         glow: '0 12px 36px -14px rgba(41, 182, 168, 0.55)',
       },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-8px)' },
-        },
-      },
-      animation: {
-        float: 'float 7s ease-in-out infinite',
-      },
     },
   },
   plugins: [],
