@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 const COINGECKO_API =
-  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true';
+  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true';
 
 const COINS = [
   { id: 'bitcoin', name: 'Bitcoin', symbol: 'BTC', icon: '/coins/btc.svg' },
@@ -57,6 +57,14 @@ function formatPrice(value) {
   return `$${value.toLocaleString('en-AU', { maximumFractionDigits: 4 })}`;
 }
 
+function formatVolume(value) {
+  if (value == null) return 'Vol ...';
+  if (value >= 1000000000) return `Vol $${(value / 1000000000).toFixed(1)}B`;
+  if (value >= 1000000) return `Vol $${(value / 1000000).toFixed(1)}M`;
+  if (value >= 1000) return `Vol $${(value / 1000).toFixed(1)}K`;
+  return `Vol $${Math.round(value)}`;
+}
+
 /**
  * Live market prices from CoinGecko's public API.
  *
@@ -90,7 +98,11 @@ export default function LiveMarket({ panel = false }) {
 
   const cardClass = panel
     ? 'flex h-full flex-col rounded-2xl bg-white/95 p-5 shadow-card'
-    : 'mt-2 rounded-2xl border border-ink/5 bg-white p-3 sm:mt-3 sm:p-4';
+    : 'mt-2 rounded-2xl border border-ink/5 bg-white px-3 py-3 sm:mt-3 sm:px-4 sm:py-4';
+
+  const upCount = prices
+    ? COINS.filter((coin) => (prices[coin.id]?.usd_24h_change ?? 0) >= 0).length
+    : null;
 
   return (
     <div className={cardClass}>
@@ -128,7 +140,9 @@ export default function LiveMarket({ panel = false }) {
                   />
                   <span className="min-w-0">
                     <span className="block truncate font-medium text-ink">{coin.name}</span>
-                    <span className="block text-[10px] text-muted">{coin.symbol}</span>
+                    <span className="block truncate text-[10px] text-muted">
+                      {coin.symbol} · {formatVolume(price?.usd_24h_vol)}
+                    </span>
                   </span>
                 </span>
                 <span className="shrink-0 text-right">
@@ -151,8 +165,17 @@ export default function LiveMarket({ panel = false }) {
         </ul>
       )}
 
-      <p className={`text-[10px] text-muted ${panel ? 'mt-auto pt-3' : 'mt-2'}`}>
-        Prices via CoinGecko
+      <p
+        className={`flex flex-wrap items-center justify-between gap-x-2 gap-y-0.5 text-[10px] text-muted ${
+          panel ? 'mt-auto pt-3' : 'mt-2'
+        }`}
+      >
+        <span>Prices via CoinGecko</span>
+        {upCount != null ? (
+          <span>
+            {upCount} Up / {COINS.length - upCount} Down
+          </span>
+        ) : null}
       </p>
     </div>
   );

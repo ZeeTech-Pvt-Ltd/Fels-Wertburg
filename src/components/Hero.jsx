@@ -1,6 +1,5 @@
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import LiveMarket from './LiveMarket.jsx';
-import MiniChart from './MiniChart.jsx';
 import { LogoMark } from './Logo.jsx';
 
 const ASSURANCES = [
@@ -145,25 +144,6 @@ export default function Hero() {
                     ))}
                   </div>
                 </div>
-              </div>
-
-              {/* Chart card */}
-              <div className="mt-2 rounded-2xl border border-ink/5 bg-white p-3 sm:mt-3 sm:p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-ink">Market activity</p>
-                    <p className="text-[11px] text-muted">7-day view</p>
-                  </div>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/10 px-2.5 py-1 text-xs font-semibold text-accent-dark">
-                    <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
-                    7-day trend
-                  </span>
-                </div>
-                <MiniChart
-                  data={[14, 18, 16, 22, 19, 25, 31, 27, 34]}
-                  stroke="#1E6F8C"
-                  className="mt-3 h-24 w-full"
-                />
               </div>
 
               {/* Live market prices */}
