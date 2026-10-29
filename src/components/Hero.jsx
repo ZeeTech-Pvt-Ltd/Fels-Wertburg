@@ -1,12 +1,7 @@
-import { ArrowRight, TrendingDown, TrendingUp } from 'lucide-react';
+import { ArrowRight, TrendingUp } from 'lucide-react';
+import LiveMarket from './LiveMarket.jsx';
 import MiniChart from './MiniChart.jsx';
 import { LogoMark } from './Logo.jsx';
-
-const WATCHLIST = [
-  { name: 'Bitcoin (BTC)', change: '+1.4%', up: true },
-  { name: 'Ethereum (ETH)', change: '+0.6%', up: true },
-  { name: 'Solana (SOL)', change: '-0.3%', up: false },
-];
 
 const ASSURANCES = [
   'No credit card required',
@@ -171,31 +166,8 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Watchlist */}
-              <div className="mt-2 rounded-2xl border border-ink/5 bg-white p-3 sm:mt-3 sm:p-4">
-                <p className="text-sm font-semibold text-ink">Watchlist</p>
-                <ul className="mt-2 space-y-2">
-                  {WATCHLIST.map((row) => (
-                    <li key={row.name} className="flex items-center justify-between text-sm">
-                      <span className="text-steel">{row.name}</span>
-                      <span
-                        className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${
-                          row.up
-                            ? 'bg-accent/10 text-accent-dark'
-                            : 'bg-red-500/10 text-red-600'
-                        }`}
-                      >
-                        {row.up ? (
-                          <TrendingUp className="h-3 w-3" aria-hidden="true" />
-                        ) : (
-                          <TrendingDown className="h-3 w-3" aria-hidden="true" />
-                        )}
-                        {row.change}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Live market prices */}
+              <LiveMarket />
             </div>
           </div>
         </div>

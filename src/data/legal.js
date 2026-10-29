@@ -14,6 +14,10 @@ export const LEGAL_DOCS = {
         body: 'We use your details to set up your account, keep you informed about platform updates and respond to support enquiries. We do not sell your personal information to third parties.',
       },
       {
+        heading: 'Market data provider',
+        body: 'To show live cryptocurrency prices, the site requests public market data from CoinGecko. That request may share your IP address with CoinGecko, but it does not include your name, email address or anything you enter into the registration form. CoinGecko handles that technical data under its own privacy policy.',
+      },
+      {
         heading: 'Storage and security',
         body: 'We apply reasonable administrative, technical and physical safeguards to protect personal information, and we retain it only for as long as needed for the purposes described in this policy or as required by law.',
       },
@@ -38,7 +42,7 @@ export const LEGAL_DOCS = {
       },
       {
         heading: 'Third-party services',
-        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, our registration provider that securely processes the sign-up form). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
+        body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, our registration provider that securely processes the sign-up form, and CoinGecko, which supplies public cryptocurrency prices). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
       },
       {
         heading: 'Your choices',

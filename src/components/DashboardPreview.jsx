@@ -1,13 +1,7 @@
 import { ArrowUpRight, PieChart as PieIcon, Wallet } from 'lucide-react';
+import LiveMarket from './LiveMarket.jsx';
 import MiniChart from './MiniChart.jsx';
 import Eyebrow from './Eyebrow.jsx';
-
-const WATCHLIST = [
-  { name: 'Bitcoin (BTC)', change: '+1.4%', up: true },
-  { name: 'Ethereum (ETH)', change: '+0.6%', up: true },
-  { name: 'Solana (SOL)', change: '-0.4%', up: false },
-  { name: 'Cardano (ADA)', change: '+0.9%', up: true },
-];
 
 const SUMMARY = [
   { label: 'Bitcoin & major alts', tone: 'Positive', up: true },
@@ -132,23 +126,9 @@ export default function DashboardPreview() {
               </div>
             </div>
 
-            {/* Watchlist */}
-            <div className="rounded-2xl bg-white/95 p-5 shadow-card xl:col-span-3">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted">Watchlist</p>
-              <ul className="mt-3 space-y-2.5">
-                {WATCHLIST.map((row) => (
-                  <li key={row.name} className="flex items-center justify-between text-sm">
-                    <span className="text-steel">{row.name}</span>
-                    <span
-                      className={`text-xs font-semibold ${
-                        row.up ? 'text-accent-dark' : 'text-red-500'
-                      }`}
-                    >
-                      {row.up ? '▲' : '▼'} {row.change}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            {/* Live market watchlist */}
+            <div className="xl:col-span-3">
+              <LiveMarket panel />
             </div>
 
             {/* Market summary */}
