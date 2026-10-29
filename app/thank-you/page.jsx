@@ -45,7 +45,7 @@ export default function ThankYouPage() {
           id="thanks-title"
           className="mt-4 text-[clamp(1.7rem,6vw,2.3rem)] font-extrabold tracking-tight text-primary"
         >
-          You&rsquo;re all set!
+          You&rsquo;re All Set!
         </h1>
         <p className="mx-auto mt-2 max-w-[40ch] text-[15px] leading-relaxed text-steel">
           Thanks for registering with <strong className="font-semibold text-ink">Fels Wertburg AI</strong>.

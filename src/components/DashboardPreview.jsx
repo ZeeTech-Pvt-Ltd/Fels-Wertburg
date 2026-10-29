@@ -24,7 +24,7 @@ export default function DashboardPreview() {
             Product Tour
           </Eyebrow>
           <h2 id="preview-heading" className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            One calm workspace for your research
+            One Calm Workspace For Your Research
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             A quick look at how market scanning, watchlists, charting and summaries sit together

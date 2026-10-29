@@ -27,7 +27,7 @@ export default function Footer() {
       </div>
 
       <div className="shell relative pt-16 sm:pt-20">
-        <h2 className="sr-only">Contact and legal information</h2>
+        <h2 className="sr-only">Contact And Legal Information</h2>
 
         {/* Contact band */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Contact summary */}
           <div className="lg:col-span-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white/60">Get in touch</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white/60">Get In Touch</h3>
             <ul className="mt-4 space-y-3 text-sm text-white/75">
               <li>
                 <a href="mailto:support@fels-wertburgai.com" className="transition hover:text-accent">

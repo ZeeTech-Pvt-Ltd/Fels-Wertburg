@@ -86,7 +86,7 @@ export default function Features() {
             Core Features
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Designed to make market research clearer
+            Designed To Make Market Research Clearer
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             Every feature exists for one reason: to help you access, understand and use market

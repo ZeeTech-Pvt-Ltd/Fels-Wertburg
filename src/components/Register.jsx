@@ -22,7 +22,7 @@ export default function Register() {
         <Reveal className="lg:order-2" delay={120}>
           <Eyebrow>Get Started</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Join Fels Wertburg AI in just a few minutes
+            Join Fels Wertburg AI In Just A Few Minutes
           </h2>
           <p className="mt-5 max-w-lg text-lg leading-relaxed text-steel">
             Registration is simple and secure. Tell us who you are and we&rsquo;ll help you set up a

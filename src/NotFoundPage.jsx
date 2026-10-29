@@ -31,7 +31,7 @@ export default function NotFoundPage() {
           </p>
 
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
-            This page has wandered off
+            This Page Has Wandered Off
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-steel">
             The link may be broken or the page may have moved. Let&rsquo;s get you back on track:

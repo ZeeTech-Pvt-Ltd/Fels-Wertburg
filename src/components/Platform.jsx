@@ -17,7 +17,7 @@ export default function Platform() {
         <Reveal className="lg:col-span-5">
           <Eyebrow>The Platform</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Everything You Need to Research Crypto Markets
+            Everything You Need To Research Crypto Markets
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-steel">
             Fels Wertburg AI brings crypto market data, AI-assisted analysis and charting into one

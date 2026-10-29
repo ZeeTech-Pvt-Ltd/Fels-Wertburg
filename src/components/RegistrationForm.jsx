@@ -446,7 +446,7 @@ export default function RegistrationForm() {
       className="rounded-2xl border border-ink/10 bg-white p-6 shadow-card sm:p-8"
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 className="text-lg font-bold text-primary">Create your account</h3>
+        <h3 className="text-lg font-bold text-primary">Create Your Account</h3>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-2.5 py-1.5 text-xs font-semibold text-accent-dark sm:px-3 sm:py-1">
           <ShieldCheck className="h-4 w-4 shrink-0 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
           <span className="hidden sm:inline">Secure sign-up</span>

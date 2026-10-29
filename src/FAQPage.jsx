@@ -40,7 +40,7 @@ export default function FAQPage() {
               Help centre
             </p>
             <h1 className="mt-5 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Frequently asked questions
+              Frequently Asked Questions
             </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
               Straight answers about Fels Wertburg AI: what the platform is, who it&rsquo;s for,
@@ -61,7 +61,7 @@ export default function FAQPage() {
               <span className="grid h-11 w-11 place-items-center rounded-2xl bg-secondary/10 text-secondary">
                 <MessageCircle className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h2 className="mt-4 text-lg font-bold text-primary">Can&rsquo;t find your answer?</h2>
+              <h2 className="mt-4 text-lg font-bold text-primary">Can&rsquo;t Find Your Answer?</h2>
               <p className="mt-2 text-sm leading-relaxed text-steel">
                 Send us a message and our team will get back to you during Australian business hours
                 (Mon&ndash;Fri, 9am&ndash;5pm AEST). We&rsquo;re happy to help.
@@ -81,7 +81,7 @@ export default function FAQPage() {
               <span className="grid h-11 w-11 place-items-center rounded-2xl bg-accent/10 text-accent-dark">
                 <Sparkles className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h2 className="mt-4 text-lg font-bold text-primary">Just getting started?</h2>
+              <h2 className="mt-4 text-lg font-bold text-primary">Just Getting Started?</h2>
               <p className="mt-2 text-sm leading-relaxed text-steel">
                 Create your free account on the homepage: all we need are basic contact details,
                 and you can explore the platform right away.

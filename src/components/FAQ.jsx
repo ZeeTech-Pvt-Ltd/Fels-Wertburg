@@ -78,7 +78,7 @@ export default function FAQ() {
         <div className="lg:col-span-5">
           <Eyebrow>FAQ</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Questions, answered
+            Questions, Answered
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             Everything you need to know before getting started with Fels Wertburg AI. Can&rsquo;t find what

@@ -131,7 +131,7 @@ export default function Testimonials() {
             What We Aim For
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            The experience we&rsquo;re building toward
+            The Experience We&rsquo;re Building Toward
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             Three qualities at the heart of the platform.

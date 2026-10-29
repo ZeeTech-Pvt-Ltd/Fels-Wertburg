@@ -49,7 +49,7 @@ export default function HowItWorks() {
             How It Works
           </Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Up and running in three simple steps
+            Up And Running In Three Simple Steps
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-steel">
             No steep learning curve, just a clear path from sign up to smarter research.

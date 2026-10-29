@@ -48,7 +48,7 @@ export default function AboutPage() {
           <div className="rv">
             <p className="ab-eyebrow">About Fels Wertburg AI</p>
             <h1 id="about-title">
-              Research that helps you <span className="grad">decide, not guess.</span>
+              Research That Helps You <span className="grad">Decide, Not Guess.</span>
             </h1>
             <p className="ab-lede">
               Fels Wertburg AI is an Australian platform that pairs <strong>AI-assisted market scanning</strong>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                 </svg>
               </span>
               <span>
-                <b>Evidence over hype</b>
+                <b>Evidence Over Hype</b>
                 <span>Human-reviewed research</span>
               </span>
             </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
               </span>
             </div>
             <div className="ab-story-copy rv">
-              <p className="ab-eyebrow">Our story</p>
-              <h2 id="story-title">We got tired of guessing.</h2>
+              <p className="ab-eyebrow">Our Story</p>
+              <h2 id="story-title">We Got Tired Of Guessing.</h2>
               <p>
                 Fels Wertburg started with a simple observation: most people don&rsquo;t have a crypto
                 problem: they have an <strong>information</strong> problem. Between jargon, hype and
@@ -186,12 +186,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ What we focus on ============ */}
+      {/* ============ What We Focus On ============ */}
       <section className="ab-section" aria-labelledby="focus-title">
         <div className="shell">
           <div className="ab-sec-head rv">
-            <p className="ab-eyebrow">What we focus on</p>
-            <h2 id="focus-title">Three things, done properly.</h2>
+            <p className="ab-eyebrow">What We Focus On</p>
+            <h2 id="focus-title">Three Things, Done Properly.</h2>
             <p className="ab-sub">
               Every part of the platform exists to serve one job: helping you understand what&rsquo;s happening
               in the market and why it might matter.
@@ -205,7 +205,7 @@ export default function AboutPage() {
                   <path d="M3 21h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </span>
-              <h3>AI-assisted scanning</h3>
+              <h3>AI Assisted Scanning</h3>
               <p>
                 Tools that watch price action across exchanges and flag unusual moves and gaps, so you always
                 know where to look closer.
@@ -218,7 +218,7 @@ export default function AboutPage() {
                   <path d="M8 8h8M8 12h5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </span>
-              <h3>Education, not promises</h3>
+              <h3>Education, Not Promises</h3>
               <p>
                 Guides written for real beginners, from your first wallet to advanced research. We teach how
                 markets work; we never guarantee outcomes.
@@ -231,7 +231,7 @@ export default function AboutPage() {
                   <path d="M9.5 12l1.8 1.8 3.4-3.8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-              <h3>Security by design</h3>
+              <h3>Security By Design</h3>
               <p>
                 Sign-up only asks for basic contact details. No credit card, no wallet keys and no passwords;
                 that stays between you and your providers.
@@ -247,29 +247,29 @@ export default function AboutPage() {
         <span className="bgdot" style={{ bottom: -160, left: -60, opacity: 0.7 }} aria-hidden="true" />
         <div className="shell" style={{ position: 'relative' }}>
           <div className="ab-sec-head rv">
-            <p className="ab-eyebrow">What we value</p>
-            <h2 id="values-title">The way we work</h2>
+            <p className="ab-eyebrow">What We Value</p>
+            <h2 id="values-title">The Way We Work</h2>
             <p className="ab-sub">Our principles stay the same whether the market is up, down or sideways.</p>
           </div>
           <div className="ab-val-grid">
             <div className="ab-val rv">
               <span className="num">/ 01</span>
-              <h3>Clarity over complexity</h3>
+              <h3>Clarity Over Complexity</h3>
               <p>If an explanation needs an explanation, we rewrite it. Markets are complicated enough.</p>
             </div>
             <div className="ab-val rv">
               <span className="num">/ 02</span>
-              <h3>Evidence over hype</h3>
+              <h3>Evidence Over Hype</h3>
               <p>We show the data and the reasoning, and we clearly label what is opinion versus fact.</p>
             </div>
             <div className="ab-val rv">
               <span className="num">/ 03</span>
-              <h3>Education first</h3>
+              <h3>Education First</h3>
               <p>We&rsquo;d rather you learn to fish than be handed a fish, especially when money is involved.</p>
             </div>
             <div className="ab-val rv">
               <span className="num">/ 04</span>
-              <h3>Honesty &amp; accountability</h3>
+              <h3>Honesty &amp; Accountability</h3>
               <p>No guaranteed returns, no pressure tactics, and clear risk disclosure on every example we show.</p>
             </div>
           </div>
@@ -311,7 +311,7 @@ export default function AboutPage() {
             />
             <div className="veil" aria-hidden="true" />
             <div className="cnt">
-              <h2 id="cta-title">Start with the basics, at your own pace.</h2>
+              <h2 id="cta-title">Start With The Basics, At Your Own Pace.</h2>
               <p>
                 Fels Wertburg AI gives Australians a clearer way to research the market: AI-assisted
                 scanning, charts and plain-English education, with no credit card needed.

@@ -3,12 +3,12 @@ import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
 const BENEFITS = [
-  { label: 'Clear market information', text: 'Structured data, minimal jargon.' },
-  { label: 'Simple navigation', text: 'Find what you need quickly.' },
-  { label: 'Responsive experience', text: 'Great on any screen size.' },
-  { label: 'Educational resources', text: 'Learn at your own pace.' },
-  { label: 'Modern analytics', text: 'Thoughtful, readable charts.' },
-  { label: 'Accessible interface', text: 'Designed with everyone in mind.' },
+  { label: 'Clear Market Information', text: 'Structured data, minimal jargon.' },
+  { label: 'Simple Navigation', text: 'Find what you need quickly.' },
+  { label: 'Responsive Experience', text: 'Great on any screen size.' },
+  { label: 'Educational Resources', text: 'Learn at your own pace.' },
+  { label: 'Modern Analytics', text: 'Thoughtful, readable charts.' },
+  { label: 'Accessible Interface', text: 'Designed with everyone in mind.' },
 ];
 
 export default function Benefits() {
@@ -19,7 +19,7 @@ export default function Benefits() {
         <Reveal>
           <Eyebrow>Why Fels Wertburg AI</Eyebrow>
           <h2 className="mt-5 text-[clamp(1.9rem,4vw,2.75rem)] font-extrabold leading-tight tracking-tight text-primary">
-            Built for Clarity, Not Complexity
+            Built For Clarity, Not Complexity
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-steel">
             Financial markets are full of noise. We focus on presenting information in a way that is

@@ -6,23 +6,23 @@ export const LEGAL_DOCS = {
       'This policy explains how Fels Wertburg AI collects, uses and protects your personal information, in line with the Australian Privacy Principles under the Privacy Act 1988 (Cth).',
     sections: [
       {
-        heading: 'Information we collect',
+        heading: 'Information We Collect',
         body: 'When you register, we collect only the basic details you provide: your first name, last name, email address and phone number. We do not ask for passwords, credit card details, bank account numbers, wallet keys or other sensitive financial information as part of registration.',
       },
       {
-        heading: 'How we use it',
+        heading: 'How We Use It',
         body: 'We use your details to set up your account, keep you informed about platform updates and respond to support enquiries. We do not sell your personal information to third parties.',
       },
       {
-        heading: 'Market data provider',
+        heading: 'Market Data Provider',
         body: 'To show live cryptocurrency prices, the site requests public market data from CoinGecko. That request may share your IP address with CoinGecko, but it does not include your name, email address or anything you enter into the registration form. CoinGecko handles that technical data under its own privacy policy.',
       },
       {
-        heading: 'Storage and security',
+        heading: 'Storage And Security',
         body: 'We apply reasonable administrative, technical and physical safeguards to protect personal information, and we retain it only for as long as needed for the purposes described in this policy or as required by law.',
       },
       {
-        heading: 'Your rights',
+        heading: 'Your Rights',
         body: 'You may request access to, correction of, or deletion of your personal information at any time by contacting us. If you have a concern about how we handle your information, you may also contact the Office of the Australian Information Commissioner (OAIC).',
       },
     ],
@@ -33,23 +33,23 @@ export const LEGAL_DOCS = {
       'This policy explains what cookies are, how Fels Wertburg AI uses them and the choices available to you. It should be read together with our Privacy Policy.',
     sections: [
       {
-        heading: 'What are cookies?',
+        heading: 'What Are Cookies?',
         body: 'Cookies are small text files placed on your device when you visit a website. They help the site remember information about your visit, such as preferences you have chosen, so it can work more smoothly.',
       },
       {
-        heading: 'Cookies and similar technologies we use',
+        heading: 'Cookies And Similar Technologies We Use',
         body: 'We keep the cookies used on this website to a minimum. Where cookies or similar local storage are used, they are strictly necessary for the site to function (for example, remembering selections you have made on a page). We do not run advertising or profiling cookies on this website, and we do not sell information collected through cookies.',
       },
       {
-        heading: 'Third-party services',
+        heading: 'Third Party Services',
         body: 'Like most websites, we rely on a small number of external services to deliver the site (for example, our registration provider that securely processes the sign-up form, and CoinGecko, which supplies public cryptocurrency prices). These providers may use cookies or similar technology under their own policies, which we encourage you to review.',
       },
       {
-        heading: 'Your choices',
+        heading: 'Your Choices',
         body: 'Most browsers let you block or delete cookies and clear site data through their settings. Because a small number of cookies help the site function, blocking them may affect parts of the experience, such as the registration form or remembered preferences.',
       },
       {
-        heading: 'Changes and contact',
+        heading: 'Changes And Contact',
         body: 'We may update this policy as the website and the services we rely on change. Any changes will be posted on this page. If you have questions about cookies or this policy, email us at support@fels-wertburgai.com.',
       },
     ],
@@ -60,23 +60,23 @@ export const LEGAL_DOCS = {
       'These terms govern your use of the Fels Wertburg AI website and platform. By registering, you agree to be bound by them.',
     sections: [
       {
-        heading: 'Who can use the platform',
+        heading: 'Who Can Use The Platform',
         body: 'The platform is intended for Australian residents aged 18 years and over. By registering you confirm that you meet these requirements and that the details you provide are accurate.',
       },
       {
-        heading: 'What the platform provides',
+        heading: 'What The Platform Provides',
         body: 'Fels Wertburg AI provides market information, analytics tools, data visualisation and educational resources. Content is provided for general information and education only and should not be treated as a recommendation, offer or solicitation to buy or sell any financial product.',
       },
       {
-        heading: 'Your responsibilities',
+        heading: 'Your Responsibilities',
         body: 'You are responsible for how you use the information on the platform and for any decisions you make based on it. You agree not to misuse the platform, attempt to access other users’ accounts, or use automated means to scrape content.',
       },
       {
-        heading: 'Availability and changes',
+        heading: 'Availability And Changes',
         body: 'We aim to keep the platform available and information current, but we do not guarantee uninterrupted access or that all data will be free from error or delay. We may update these terms or the platform from time to time.',
       },
       {
-        heading: 'Governing law',
+        heading: 'Governing Law',
         body: 'These terms are governed by the laws of New South Wales, Australia. Nothing in these terms limits any rights you may have under Australian consumer law.',
       },
     ],
@@ -86,19 +86,19 @@ export const LEGAL_DOCS = {
     intro: 'Please read this disclosure carefully before using Fels Wertburg AI.',
     sections: [
       {
-        heading: 'Financial markets involve risk',
+        heading: 'Financial Markets Involve Risk',
         body: 'The value of investments and any income from them can go down as well as up. You may not get back the amount you invested. Past performance is not a reliable indicator of future performance.',
       },
       {
-        heading: 'General information only',
+        heading: 'General Information Only',
         body: 'Information provided on this website is general in nature and does not constitute personal financial advice. It does not take into account your personal objectives, financial situation or needs. Consider your circumstances and seek professional advice where appropriate.',
       },
       {
-        heading: 'No financial product advice',
+        heading: 'No Financial Product Advice',
         body: 'Fels Wertburg AI is not a financial adviser and does not hold an Australian financial services licence. We do not provide personal financial product advice, recommendations or portfolio management services. Any tools, charts or data are provided to support your own research.',
       },
       {
-        heading: 'Examples are illustrative',
+        heading: 'Examples Are Illustrative',
         body: 'Example dashboards, figures and market scenarios shown on this website are illustrative only. They are not promises, forecasts or guarantees of future returns or platform performance.',
       },
     ],
@@ -109,27 +109,27 @@ export const LEGAL_DOCS = {
       'The information on this website is provided in good faith for general information and education only. Please read this disclaimer before relying on anything you see here.',
     sections: [
       {
-        heading: 'General information only',
+        heading: 'General Information Only',
         body: 'Content on Fels Wertburg AI (including articles, charts, data and AI-assisted summaries) is general in nature and is not personal financial advice. It does not take into account your personal objectives, financial situation or needs.',
       },
       {
-        heading: 'No adviser relationship',
+        heading: 'No Adviser Relationship',
         body: 'Fels Wertburg AI is a research platform, not a financial adviser, and does not hold an Australian financial services licence. Nothing on this website is a recommendation, offer or solicitation to buy or sell any financial product, and we do not provide portfolio management services.',
       },
       {
-        heading: 'Accuracy and availability',
+        heading: 'Accuracy And Availability',
         body: 'We take reasonable care to keep information accurate and current, but we do not warrant that all content is error-free, complete or up to date at the moment you read it. Market data can be delayed or revised. To the maximum extent permitted by law, we are not liable for any loss arising from reliance on this website.',
       },
       {
-        heading: 'Examples are illustrative',
+        heading: 'Examples Are Illustrative',
         body: 'Sample dashboards, figures, scenarios and examples shown on the website are illustrative only. They are not promises, forecasts or guarantees of future returns or of platform performance.',
       },
       {
-        heading: 'External links',
+        heading: 'External Links',
         body: 'The website may link to third-party websites for convenience. We do not control those websites and are not responsible for their content, privacy practices or availability.',
       },
       {
-        heading: 'Your responsibility',
+        heading: 'Your Responsibility',
         body: 'You are responsible for your own research and decisions. Consider seeking independent professional advice before acting on anything you read here. Nothing in this disclaimer limits or excludes any rights you may have under Australian consumer law.',
       },
     ],
