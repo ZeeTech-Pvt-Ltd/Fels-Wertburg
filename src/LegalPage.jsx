@@ -18,7 +18,7 @@ export default function LegalPage({ docKey }) {
 
   return (
     <div className="section">
-      <div className="shell mx-auto max-w-3xl">
+      <div className="shell mx-auto max-w-4xl">
         {/* Intro card */}
         <header className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-deep to-primary px-6 py-10 text-white shadow-card sm:px-10 sm:py-12">
           <div aria-hidden="true" className="pointer-events-none absolute -right-10 -top-14 h-48 w-48 rounded-full bg-accent/20 blur-3xl" />

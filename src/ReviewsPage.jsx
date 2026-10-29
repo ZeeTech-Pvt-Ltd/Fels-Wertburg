@@ -4,7 +4,6 @@ import { TESTIMONIALS, TestimonialCard } from './components/Testimonials.jsx';
 import Eyebrow from './components/Eyebrow.jsx';
 import PageHeader from './components/PageHeader.jsx';
 import Reveal from './components/Reveal.jsx';
-import RiskNote from './components/RiskNote.jsx';
 
 const FEEDBACK_POINTS = [
   {
@@ -181,8 +180,6 @@ export default function ReviewsPage() {
           </div>
         </div>
       </section>
-
-      <RiskNote />
 
       <section className="relative overflow-hidden bg-canvas py-16 sm:py-24">
         <div className="shell">

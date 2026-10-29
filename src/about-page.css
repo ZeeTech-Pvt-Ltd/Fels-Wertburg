@@ -114,7 +114,7 @@
 .ab-sec-head h2 { margin-top: 16px; font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.15; letter-spacing: -0.015em; color: var(--fw-primary); }
 .ab-sec-head .ab-sub { margin-top: 14px; color: var(--fw-steel); font-size: 16px; }
 
-.ab-story-grid { display: grid; gap: 40px; align-items: center; margin-top: 44px; }
+.ab-story-grid { display: grid; gap: 40px; align-items: center; margin-top: 44px; padding-top: 40px; }
 @media (min-width: 1000px) { .ab-story-grid { grid-template-columns: 1fr 1fr; gap: 60px; } }
 .ab-story-copy p { color: var(--fw-steel); font-size: 16px; margin-top: 18px; }
 .ab-story-copy p strong { color: var(--fw-ink); font-weight: 600; }
@@ -180,12 +180,12 @@
 .ab-promise-box cite { display: block; margin-top: 18px; font-style: normal; color: var(--fw-muted); font-size: 14px; font-weight: 600; }
 
 /* CTA band */
-.ab-cta-band { position: relative; overflow: hidden; padding: 24px 0 96px; }
+.ab-cta-band { position: relative; overflow: hidden; padding: 96px 0; }
 .ab-cta-band .inner { position: relative; border-radius: 30px; overflow: hidden; }
 .ab-cta-band img.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ab-cta-band .veil { position: absolute; inset: 0; background: linear-gradient(115deg, rgba(11, 44, 71, 0.93), rgba(18, 59, 93, 0.78) 55%, rgba(30, 111, 140, 0.72)); }
-.ab-cta-band .cnt { position: relative; padding: 70px 28px; text-align: center; }
-@media (min-width: 640px) { .ab-cta-band .cnt { padding: 88px 40px; } }
+.ab-cta-band .cnt { position: relative; padding: 88px 28px; text-align: center; }
+@media (min-width: 640px) { .ab-cta-band .cnt { padding: 96px 40px; } }
 .ab-cta-band h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.7rem); letter-spacing: -0.015em; }
 .ab-cta-band p { color: rgba(255, 255, 255, 0.8); margin: 14px auto 0; max-width: 52ch; font-size: 16px; }
 .ab-cta-band .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px; }

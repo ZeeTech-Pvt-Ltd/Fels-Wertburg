@@ -4,7 +4,6 @@ import { FEATURES } from './components/Features.jsx';
 import Eyebrow from './components/Eyebrow.jsx';
 import PageHeader from './components/PageHeader.jsx';
 import Reveal from './components/Reveal.jsx';
-import RiskNote from './components/RiskNote.jsx';
 
 const AUDIENCE_POINTS = [
   {
@@ -185,8 +184,6 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
-
-      <RiskNote />
 
       <section className="relative overflow-hidden bg-canvas py-16 sm:py-24">
         <div className="shell">

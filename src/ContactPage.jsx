@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FileQuestion, LifeBuoy, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import RegistrationForm from './components/RegistrationForm.jsx';
 import { CONTACT_DETAILS } from './components/Footer.jsx';
 
@@ -89,33 +89,6 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="mt-4 space-y-3">
-              <Link
-                href="/faq"
-                className="flex items-center gap-4 rounded-2xl border border-ink/5 bg-white px-5 py-4 shadow-soft transition hover:border-secondary/25"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent-dark">
-                  <LifeBuoy className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-sm font-bold text-primary">Browse the FAQ</span>
-                  <span className="block text-sm text-steel">Answers to common questions</span>
-                </span>
-              </Link>
-
-              <Link
-                href="/risk-disclosure"
-                className="flex items-center gap-4 rounded-2xl border border-ink/5 bg-white px-5 py-4 shadow-soft transition hover:border-secondary/25"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/5 text-primary">
-                  <FileQuestion className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-sm font-bold text-primary">Risk disclosure</span>
-                  <span className="block text-sm text-steel">Our general information notice</span>
-                </span>
-              </Link>
-            </div>
           </div>
 
           {/* Form column - same RegistrationForm as the homepage */}
