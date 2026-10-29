@@ -64,7 +64,7 @@ export default function ReviewsPage() {
 
           <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3">
             {TESTIMONIALS.map((item, index) => (
-              <Reveal key={item.theme} className="h-full" delay={index * 120}>
+              <Reveal key={item.name} className="h-full" delay={index * 120}>
                 <TestimonialCard item={item} featured={index === 1} />
               </Reveal>
             ))}

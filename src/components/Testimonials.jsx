@@ -1,23 +1,30 @@
-import { Quote, Star, StarHalf, User } from 'lucide-react';
+import Image from 'next/image';
+import { Quote, Star, StarHalf } from 'lucide-react';
 import Eyebrow from './Eyebrow.jsx';
 import Reveal from './Reveal.jsx';
 
 // Shared by the homepage section and the dedicated Reviews page, so the
-// themes and wording can never drift between the two.
+// reviews and wording can never drift between the two.
 export const TESTIMONIALS = [
   {
     quote: 'Simple to navigate and easy to understand.',
-    theme: 'Navigation',
+    name: 'Priya S.',
+    location: 'Melbourne, VIC',
+    image: '/reviews/reviewer-2.jpg',
     rating: 4.5,
   },
   {
     quote: 'Having market information organised in one place makes research much easier.',
-    theme: 'Organisation',
+    name: 'Alex M.',
+    location: 'Sydney, NSW',
+    image: '/reviews/reviewer-1.jpg',
     rating: 5,
   },
   {
     quote: 'The interface feels clean and straightforward.',
-    theme: 'Interface',
+    name: 'Daniel K.',
+    location: 'Brisbane, QLD',
+    image: '/reviews/reviewer-3.jpg',
     rating: 4,
   },
 ];
@@ -82,21 +89,27 @@ export function TestimonialCard({ item, featured = false }) {
       >
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
-            <span
+            <Image
+              src={item.image}
+              alt=""
               aria-hidden="true"
-              className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${
-                featured ? 'bg-white/15 text-white' : 'bg-primary/5 text-secondary'
-              }`}
-            >
-              <User className="h-5 w-5" />
-            </span>
-            <p
-              className={`truncate text-xs font-bold uppercase tracking-wider ${
-                featured ? 'text-accent' : 'text-secondary'
-              }`}
-            >
-              {item.theme}
-            </p>
+              width={40}
+              height={40}
+              sizes="40px"
+              className="h-10 w-10 shrink-0 rounded-full object-cover ring-2 ring-accent/20"
+            />
+            <div className="min-w-0">
+              <p
+                className={`truncate text-sm font-bold ${
+                  featured ? 'text-white' : 'text-primary'
+                }`}
+              >
+                {item.name}
+              </p>
+              <p className={`truncate text-xs ${featured ? 'text-white/70' : 'text-muted'}`}>
+                {item.location}
+              </p>
+            </div>
           </div>
           <StarRating value={item.rating} featured={featured} />
         </div>
@@ -127,7 +140,7 @@ export default function Testimonials() {
 
         <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((item, index) => (
-            <Reveal key={item.theme} className="h-full" delay={index * 120}>
+            <Reveal key={item.name} className="h-full" delay={index * 120}>
               <TestimonialCard item={item} featured={index === 1} />
             </Reveal>
           ))}
