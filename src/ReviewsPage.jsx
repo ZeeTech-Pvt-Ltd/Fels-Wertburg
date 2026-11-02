@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Check, MessageCircle, ShieldCheck, Star, X } from 'lucide-react';
 import { TESTIMONIALS, TestimonialCard } from './components/Testimonials.jsx';
+import CompactHero, { HeroPanel } from './components/CompactHero.jsx';
 import Eyebrow from './components/Eyebrow.jsx';
-import PageHeader from './components/PageHeader.jsx';
 import Reveal from './components/Reveal.jsx';
 
 const FEEDBACK_POINTS = [
@@ -38,16 +39,45 @@ const REVIEW_CANNOT = [
 export default function ReviewsPage() {
   return (
     <>
-      <div className="section pb-10">
-        <div className="shell">
-          <PageHeader icon={Star} eyebrow="Reviews" title="Reviews And What Users Value">
-            A look at the experience we are working to deliver, and the feedback we hope it earns.
-          </PageHeader>
-        </div>
-      </div>
+      <CompactHero
+        eyebrow="Reviews"
+        title="Reviews And What Users Value"
+        description="A look at the experience we are working to deliver, and the feedback we hope it earns."
+        primaryCta={{ href: '/#register', label: 'Create Your Account' }}
+        secondaryCta={{ href: '/features', label: 'See The Features' }}
+        points={['Clear star ratings', 'Locations shown']}
+      >
+        <HeroPanel title="Review Snapshot" badge={`${TESTIMONIALS.length} Reviews`}>
+          <ul className="mt-4 space-y-2.5">
+            {TESTIMONIALS.map((item) => (
+              <li
+                key={item.name}
+                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-3"
+              >
+                <Image
+                  src={item.image}
+                  alt=""
+                  width={36}
+                  height={36}
+                  sizes="36px"
+                  className="h-9 w-9 shrink-0 rounded-full object-cover ring-2 ring-accent/30"
+                />
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-bold text-white">{item.name}</p>
+                  <p className="truncate text-[10px] text-white/70">{item.location}</p>
+                </div>
+                <span className="ml-auto inline-flex items-center gap-1 text-xs font-bold text-white">
+                  <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
+                  {item.rating}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </HeroPanel>
+      </CompactHero>
 
       {/* Example feedback, shared with the homepage testimonials section */}
-      <section aria-labelledby="reviews-heading" className="pb-16 sm:pb-20 lg:pb-24">
+      <section aria-labelledby="reviews-heading" className="py-16 sm:py-20 lg:py-24">
         <div className="shell">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow center>Example Feedback</Eyebrow>

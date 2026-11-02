@@ -30,7 +30,7 @@ export default function NotFoundPage() {
             404
           </p>
 
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-primary sm:text-4xl">
+          <h1 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-tight tracking-tight text-primary">
             This Page Has Wandered Off
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-steel">

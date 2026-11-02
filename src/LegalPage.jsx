@@ -27,7 +27,9 @@ export default function LegalPage({ docKey }) {
               <FileText className="h-3.5 w-3.5" aria-hidden="true" />
               Legal
             </p>
-            <h1 className="mt-5 text-3xl font-extrabold tracking-tight sm:text-4xl">{doc.title}</h1>
+            <h1 className="mt-5 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-tight tracking-tight">
+              {doc.title}
+            </h1>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">{doc.intro}</p>
           </div>
         </header>

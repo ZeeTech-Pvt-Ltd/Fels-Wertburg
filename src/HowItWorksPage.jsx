@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { ArrowRight, Check, Clock, Compass, Route, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, Clock, Compass, ShieldCheck } from 'lucide-react';
 import { STEPS } from './components/HowItWorks.jsx';
+import CompactHero, { HeroPanel } from './components/CompactHero.jsx';
 import Eyebrow from './components/Eyebrow.jsx';
 import MiniChart from './components/MiniChart.jsx';
-import PageHeader from './components/PageHeader.jsx';
 import Reveal from './components/Reveal.jsx';
 
 const FIRST_SESSION = [
@@ -34,17 +34,45 @@ const PACE_POINTS = [
 export default function HowItWorksPage() {
   return (
     <>
-      <div className="section pb-10">
-        <div className="shell">
-          <PageHeader icon={Route} eyebrow="How It Works" title="How Fels Wertburg AI Works">
-            A clear path from your first sign up to a research routine you can trust. Here is what
-            happens at each step, in plain English.
-          </PageHeader>
-        </div>
-      </div>
+      <CompactHero
+        eyebrow="How It Works"
+        title="How Fels Wertburg AI Works"
+        description="A clear path from your first sign up to a research routine you can trust. Here is what happens at each step, in plain English."
+        primaryCta={{ href: '/#register', label: 'Create Your Account' }}
+        secondaryCta={{ href: '/features', label: 'See The Features' }}
+        points={['Three simple steps', 'No credit card needed']}
+      >
+        <HeroPanel title="Your Path" badge={`${STEPS.length} Steps`}>
+          <ol className="mt-4 space-y-2.5">
+            {STEPS.map((step) => {
+              const Icon = step.icon;
+              return (
+                <li
+                  key={step.number}
+                  className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-3"
+                >
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent text-primary-deep">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-white/70">
+                      Step {step.number}
+                    </p>
+                    <p className="truncate text-sm font-bold text-white">{step.title}</p>
+                  </div>
+                  <ArrowRight
+                    className="ml-auto h-4 w-4 shrink-0 text-white/40"
+                    aria-hidden="true"
+                  />
+                </li>
+              );
+            })}
+          </ol>
+        </HeroPanel>
+      </CompactHero>
 
       {/* The three steps, expanded from the same data the homepage uses */}
-      <section aria-labelledby="steps-heading" className="pb-16 sm:pb-20 lg:pb-24">
+      <section aria-labelledby="steps-heading" className="py-16 sm:py-20 lg:py-24">
         <div className="shell">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow center>The Path</Eyebrow>

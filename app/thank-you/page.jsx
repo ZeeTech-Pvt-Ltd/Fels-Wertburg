@@ -43,7 +43,7 @@ export default function ThankYouPage() {
 
         <h1
           id="thanks-title"
-          className="mt-4 text-[clamp(1.7rem,6vw,2.3rem)] font-extrabold tracking-tight text-primary"
+          className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-tight tracking-tight text-primary"
         >
           You&rsquo;re All Set!
         </h1>

@@ -35,7 +35,7 @@ export default function Hero() {
             Smart Tools for Modern Markets
           </p>
 
-          <h1 className="mt-6 text-[clamp(2.125rem,5.5vw,3.5rem)] font-extrabold leading-[1.08] tracking-tight text-primary">
+          <h1 className="mt-6 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-[1.08] tracking-tight text-primary">
             Make More Informed Market Decisions
           </h1>
 

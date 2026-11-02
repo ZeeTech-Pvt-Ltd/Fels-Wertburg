@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Check, Globe2, Lock, Sparkles, X } from 'lucide-react';
+import { ArrowRight, BookOpen, Check, Globe2, Lock, X } from 'lucide-react';
 import { FEATURES } from './components/Features.jsx';
+import CompactHero, { HeroPanel } from './components/CompactHero.jsx';
 import Eyebrow from './components/Eyebrow.jsx';
-import PageHeader from './components/PageHeader.jsx';
 import Reveal from './components/Reveal.jsx';
 
 const AUDIENCE_POINTS = [
@@ -40,17 +40,33 @@ const DOES_NOT = [
 export default function FeaturesPage() {
   return (
     <>
-      <div className="section pb-10">
-        <div className="shell">
-          <PageHeader icon={Sparkles} eyebrow="Features" title="Features Built For Clearer Research">
-            Every tool has one job: to help you find, understand and use market information without
-            unnecessary effort.
-          </PageHeader>
-        </div>
-      </div>
+      <CompactHero
+        eyebrow="Features"
+        title="Features Built For Clearer Research"
+        description="Every tool has one job: to help you find, understand and use market information without unnecessary effort."
+        primaryCta={{ href: '/#register', label: 'Create Your Account' }}
+        secondaryCta={{ href: '/how-it-works', label: 'How It Works' }}
+        points={[`${FEATURES.length} core tools`, 'One calm workspace']}
+      >
+        <HeroPanel title="Core Tools" badge={`${FEATURES.length} Features`}>
+          <div className="mt-4 grid grid-cols-2 gap-2.5">
+            {FEATURES.slice(0, 4).map(({ icon: Icon, title }) => (
+              <div
+                key={title}
+                className="flex items-start gap-2.5 rounded-2xl border border-white/10 bg-white/[0.06] p-3"
+              >
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent text-primary-deep">
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <p className="text-xs font-semibold leading-snug text-white">{title}</p>
+              </div>
+            ))}
+          </div>
+        </HeroPanel>
+      </CompactHero>
 
       {/* Feature deep dives, from the same data as the homepage */}
-      <section aria-labelledby="features-heading" className="pb-16 sm:pb-20 lg:pb-24">
+      <section aria-labelledby="features-heading" className="py-16 sm:py-20 lg:py-24">
         <div className="shell">
           <div className="mx-auto max-w-2xl text-center">
             <Eyebrow center>Core Features</Eyebrow>
