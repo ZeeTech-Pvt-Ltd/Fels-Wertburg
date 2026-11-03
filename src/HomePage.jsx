@@ -2,6 +2,7 @@ import Hero from './components/Hero.jsx';
 import TrustStrip from './components/TrustStrip.jsx';
 import Register from './components/Register.jsx';
 import Platform from './components/Platform.jsx';
+import Markets from './components/Markets.jsx';
 import Features from './components/Features.jsx';
 import Stats from './components/Stats.jsx';
 import HowItWorks from './components/HowItWorks.jsx';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <TrustStrip />
       <Register />
       <Platform />
+      <Markets />
       <Features />
       <Stats />
       <HowItWorks />
