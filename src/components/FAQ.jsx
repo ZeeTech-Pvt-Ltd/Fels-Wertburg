@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, ChevronDown, MessageCircle } from 'lucide-react';
 import Eyebrow from './Eyebrow.jsx';
 import { FAQS } from '../data/faqs.js';
 
@@ -50,13 +51,14 @@ function FaqItem({ item, open, onToggle, index, heading: Heading = 'h3' }) {
  * The shared, single-open accordion used on the homepage FAQ section and on the
  * dedicated FAQ page. All items start closed and open only when clicked.
  */
-export function FaqAccordion({ headingLevel = 'h3' }) {
+export function FaqAccordion({ headingLevel = 'h3', limit }) {
   // Every item starts closed; a panel opens only when the visitor clicks it.
   const [openIndex, setOpenIndex] = useState(null);
+  const items = limit ? FAQS.slice(0, limit) : FAQS;
 
   return (
     <div className="space-y-3.5">
-      {FAQS.map((item, index) => (
+      {items.map((item, index) => (
         <FaqItem
           key={item.q}
           item={item}
@@ -101,7 +103,13 @@ export default function FAQ() {
 
         {/* Accordion column */}
         <div className="lg:col-span-7">
-          <FaqAccordion />
+          <FaqAccordion limit={5} />
+          <div className="mt-8">
+            <Link href="/faq" className="btn-ghost w-full sm:w-auto">
+              View All FAQs
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
